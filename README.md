@@ -1,4 +1,4 @@
-# Grubber: Improving Delivery Experience
+# Grubber: Improving Delivery Experiences
 
 Grubber isn't your average food delivery service. We are committed to delivering the freshest and most delicious culinary delights right to your door. We don't just provide a service at Grubber; we create unforgettable experiences centered on your food.
 
