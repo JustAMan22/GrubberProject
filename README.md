@@ -1,148 +1,160 @@
-# Flask React Project
+# Grubber, the ideal delivery experience.
 
-This is the starter for the Flask React project.
+Grubber is a unique food delivery website that strives to provide food as fresh and fast as possible. Our policy at Grubber is to provide absolute assurance of your food as fresh as possible. We do not simply want to just provide service, but also an experience you will not forget. Grubber has the perfect User experience, although we do not just stop there. At Grubber you can host your restaurant with an intuitive design.
 
-## Getting started
-1. Clone this repository (only this branch)
+At Grubber a User can experience the follow: 
 
-2. Install dependencies
+# Grubber - User Stories
 
-      ```bash
-      pipenv install -r requirements.txt
-      ```
+## Users
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+### Sign Up
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
+* As an unregistered and unauthorized user, I want to be able to sign up for the website via a sign-up form.
+  * When I'm on the `/signup` page:
+    * I would like to be able to enter my email, username, and preferred password on a clearly laid out form.
+    * I would like the website to log me in upon successful completion of the sign-up form.
+      * So that I can seamlessly access the site's functionality
+  * When I enter invalid data on the sign-up form:
+    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
+    * So that I can try again without needing to refill forms I entered valid data into.
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
+### Log in
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+* As a registered and unauthorized user, I want to be able to log in to the website via a log-in form.
+  * When I'm on the `/login` page:
+    * I would like to be able to enter my email and password on a clearly laid out form.
+    * I would like the website to log me in upon successful completion of the lob-up form.
+      * So that I can seamlessly access the site's functionality
+  * When I enter invalid data on the log-up form:
+    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
+      * So that I can try again without needing to refill forms I entered valid data into.
 
-   ```bash
-   pipenv shell
-   ```
+### Demo User
 
-   ```bash
-   flask db upgrade
-   ```
+* As an unregistered and unauthorized user, I would like an easy to find and clear button on both the `/signup` and `/login` pages to allow me to visit the site as a guest without signing up or logging in.
+  * When I'm on either the `/signup` or `/login` pages:
+    * I can click on a Demo User button to log me in and allow me access as a normal user.
+      * So that I can test the site's features and functionality without needing to stop and enter credentials.
 
-   ```bash
-   flask seed all
-   ```
+### Log Out
 
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+* As a logged in user, I want to log out via an easy to find log out button on the navigation bar.
+  * While on any page of the site:
+    * I can log out of my account and be redirected to the home page of Welp.
+      * So that I can easily log out to keep my information secure.
 
 
-## Deployment through Render.com
+## Restaurants
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+### Create Restaurants
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+* As a logged in user, I want to be able to create new restaurants.
+  * When I'm on the `/restaurants/new` page:
+    * I can create a new restaurant.
+    * When creating a restaurant there will be an option to set a thumbnail image for the restaurant.
+    * When creating a restaurant there will be options to set 3 starting menu items, following restaurant details, etc.
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+### Viewing Restaurants
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+* As a logged in _or_ logged out user, I am able to view all restaurants.
+  * When I'm on the `/restaurants` page:
+    * I can view the all restaurants currently available.
 
-### Part A: Configure the Start and Build Commands
+* As a logged in _or_ logged out user, I am able to view a specific Restaurant and its associated Reviews, and Menu Items.
+  * When I'm on the `/restaurants/:id` page:
+    * I can view the content of the Restaurant, as well as the associated Reviews, and Menu Items.
 
-Start by giving your application a name.
+### Updating Restaurants
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+* As a logged in user, and owner of the restaurant. I am able to update information about my restaurant.
+  * When I'm on the `/restaurants/:id` page:
+    * I can click "Edit" to make permanent changes to Restaurant I posted.
+    * I can click the "Add Menu Items" button to add new Menu Items to my restaurant.
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+### Deleting Restaurants
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+* As a logged in user, and owner of the restaurant I can permanetley delete the restaurant.
+  * When I'm on the `/restaurants/:id` page:
+    * I can click the "Delete" button to permanentely delete the restaurant.
+    * After deletin I am redirected to the view all restaurants page.
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+## Reviews
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+### Create Reviews
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+* As a logged in user, I am able to create new reviews for individual restaurants.
+  * When I'm on the `/restaurant/:id` page:
+    * I can click the "Create Review" button to be brought to the create review form.
+    * On the review form I can set a star rating, and leave a description of my experience.
 
-Now, add your start command in the Start field:
 
-```shell
-# start script
-gunicorn app:app
-```
+### Viewing Reviews
 
-_If you are using websockets, use the following start command instead for increased performance:_
+* As a logged in _or_ logged out user, I am able to view reviews on selected restaurants.
+  * When I'm on the `/restaurants/:id` page:
+    * I can view all reviews posted.
+    * Reviews are posted by most recent at the top.
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+### Updating Reviews
 
-### Part B: Add the Environment Variables
+* As a logged in user, and creator of the review I can make changes to the review.
+  * When I'm on the `/restaurants/:id` page:
+    * I can click "Edit" button next to my created review and directed to the form with my current review information filled in.
+    * On the review form I can make permanent changes to my review.
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+### Deleting Reviews
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+* As a logged in user, I am able to permanently delete any review I own.
+  * When I'm on the `/restaurants/:id` page:
+    * I can click the "Delete" button to permanently delete a Review I own.
+    * After deletion I am redirected to the restaurant page.
 
-Add the following keys and values in the Render GUI form:
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
+## Menu Items
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
+### Creating Menu ITems
 
-Add the following keys and values:
+* A logged in user and owner of the restaurant I am able to create menu items.
+  * When I'm on the 'restaurants/:id' page:
+    * I can click the "Add Menu Item" button and be brought to a form to create a new menu item.
+    * On the menu item form you will provide a name, description, and preview image for the item.
 
-- DATABASE_URL (copy value from Internal Database URL field)
 
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
+### Viewing Menu Items
 
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
+* As a logged in _or_ logged out user, I am able to view all a restaurants menu items.
+  * When I'm on the `/restaurants/:id` page:
+    * I see all the menu items associated with the restaurant.
+  
 
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
+### Deleting Menu Items
 
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
+* As a logged in user, and owner of the restaurant. I am able to delete created menu items.
+  * When I'm on the `/restaurants/:id` page:
+    * I can click the "Delete" button next to a menu item to permanently delete it.
+    * After deletion I am redirected to the restaurant page.
 
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+
+## Shopping Cart
+
+### Viewing Shopping Cart
+
+* As a logged in, I am able to view all the items in my cart by clicking the shopping cart icon in the top right.
+  * When I'm on any page besides a create/update page:
+    * I see all the items I have added to my cart.
+
+### Updating Shopping Cart
+
+* As a logged in user, if I add and remove items in my shopping cart.
+  * When I'm on any page except a create/update page:
+    * I can click the shopping cart drop down and remove any items I have added, effectively updating my shopping cart.
+    * On the `/restaurants/:id` page I can add menu items to my shopping cart, also effectively updating it.
+
+### Checking out with my Shopping Cart
+
+* As a logged in user, if I have at least 1 item in my shopping cart.
+  * When I'm on any page except a create/update page:
+    * I can click the shopping cart drop down and press the checkout button to be redirected to the checkout page.
+    * On the checkout page I will see a break down of my items and their information, and a place order button.
+    * I will aso be asked to fill out a delivery address before my order can be placed. After a successfully placed order I will get a confirmation message.
