@@ -1,7 +1,10 @@
-# Grubber, the ideal delivery experience.
+# Grubber: Improving Delivery Experience
 
-Grubber is a unique food delivery website that strives to provide food as fresh and fast as possible. Our policy at Grubber is to provide absolute assurance of your food as fresh as possible. We do not simply want to just provide service, but also an experience you will not forget. Grubber has the perfect User experience, although we do not just stop there. At Grubber you can host your restaurant with an intuitive design.
+Grubber isn't your average food delivery service. We are committed to delivering the freshest and most delicious culinary delights right to your door. We don't just provide a service at Grubber; we create unforgettable experiences centered on your food.
 
+
+
+Our dedication to excellence extends beyond simply delivering delicious meals on time. We have carefully created the ideal user experience, but that is only the beginning of what we have to offer. Grubber also offers a platform for restaurant owners to showcase their culinary masterpieces through an easy-to-use interface. Join us in redefining your food delivery experience
 At Grubber a User can experience the follow: 
 
 # Grubber - User Stories
