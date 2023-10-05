@@ -53,7 +53,7 @@ Our dedication to excellence extends beyond simply delivering delicious meals on
 ### Create Restaurants
 
 * As a logged in user, I want to be able to create new restaurants.
-  * When I'm on the `/restaurants/new` page:
+  * When I'm on the `/restaurants/create` page:
     * I can create a new restaurant.
     * When creating a restaurant there will be an option to set a thumbnail image for the restaurant.
     * When creating a restaurant there will be options to set 3 starting menu items, following restaurant details, etc.
