@@ -4,7 +4,7 @@ Grubber isn't your average food delivery service. We are committed to delivering
 
 
 
-Our dedication to excellence extends beyond simply delivering delicious meals on time. We have carefully created the ideal user experience, but that is only the beginning of what we have to offer. Grubber also offers a platform for restaurant owners to showcase their culinary masterpieces through an easy-to-use interface. Join us in redefining your food delivery experience
+Our dedication to excellence extends beyond simply delivering delicious meals on time. We have carefully created the ideal user experience, but that is only the beginning of what we have to offer. Grubber also offers a platform for restaurant owners to showcase their culinary masterpieces through an easy-to-use interface. Join us in redefining your food delivery experience.
 
 
 # Grubber - User Stories
@@ -72,15 +72,15 @@ Our dedication to excellence extends beyond simply delivering delicious meals on
 
 * As a logged in user, and owner of the restaurant. I am able to update information about my restaurant.
   * When I'm on the `/restaurants/:id` page:
-    * I can click "Edit" to make permanent changes to Restaurant I posted.
+    * I can click the "Edit Restaurant" Button to make permanent changes to the Restaurant I created.
     * I can click the "Add Menu Items" button to add new Menu Items to my restaurant.
 
 ### Deleting Restaurants
 
 * As a logged in user, and owner of the restaurant I can permanetley delete the restaurant.
   * When I'm on the `/restaurants/:id` page:
-    * I can click the "Delete" button to permanentely delete the restaurant.
-    * After deletin I am redirected to the view all restaurants page.
+    * I can click the "Delete Restaurant" button to permanentely delete the restaurant.
+    * After deleting I am redirected to the view all restaurants page.
 
 ## Reviews
 
