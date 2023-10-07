@@ -13,11 +13,13 @@ class ShoppingCart(db.Model,):
 
     restaurant = db.relationship("Restaurant", back_populates='cart')
     user = db.relationship('User', back_populates='cart')
-    cart_item = db.relationship('ShoppingCartItem', back_populates='cart')
+    cart_item = db.relationship('ShoppingCartItem', back_populates='cart', cascade='all, delete-orphan')
 
     def to_dict(self):
+        cart_items_list = [cart_items.to_dict() for cart_items in self.cart_item]
         return {
             'id': self.id,
             'restaurant_id': self.restaurant_id,
             'user_id': self.user_id,
+            "cart_items": cart_items_list
         }

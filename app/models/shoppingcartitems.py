@@ -20,5 +20,6 @@ class ShoppingCartItem(db.Model,):
             'id': self.id,
             'cart_id': self.cart_id,
             'menu_item_id': self.menu_item_id,
-            "quantity": self.quantity
+            "quantity": self.quantity,
+            "menu_item": self.menu_item.to_dict()
         }

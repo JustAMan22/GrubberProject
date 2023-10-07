@@ -11,10 +11,10 @@ class MenuItem(db.Model,):
     restaurant_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("restaurants.id")))
     name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(255), nullable=False)
-    price = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
     preview_image = db.Column(db.String, nullable=False)
 
-    cart_item = db.relationship('ShoppingCartItem', back_populates='menu_item')
+    cart_item = db.relationship('ShoppingCartItem', back_populates='menu_item', cascade='all, delete-orphan')
     restaurant = db.relationship('Restaurant', back_populates='menu_items')
 
     def to_dict(self):

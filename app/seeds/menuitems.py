@@ -10,7 +10,7 @@ def seed_menuitems():
     menuitem2 = MenuItem(
         restaurant_id=2, name="Yummy Burger", description="Very good trust me", price=3.99, preview_image="https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Scrum-Delicious-Burgers_EXPS_CHMZ19_824_B10_30_2b.jpg")
     menuitem3 = MenuItem(
-        restaurant_id=1, name="Most Delicious Lasagna", description="The best trust me", price=6.99, preview_image="https://shewearsmanyhats.com/wp-content/uploads/2014/10/lasagna-1.jpg")
+        restaurant_id=3, name="Most Delicious Lasagna", description="The best trust me", price=6.99, preview_image="https://shewearsmanyhats.com/wp-content/uploads/2014/10/lasagna-1.jpg")
 
     db.session.add(menuitem1)
     db.session.add(menuitem2)
