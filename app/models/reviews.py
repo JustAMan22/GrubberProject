@@ -24,5 +24,6 @@ class Review(db.Model,):
             "user_id": self.user_id,
             "review_text": self.review_text,
             "stars": self.stars,
-            "createdAt": self.createdAt
+            "createdAt": self.createdAt,
+            "user": self.user.to_dict()
         }

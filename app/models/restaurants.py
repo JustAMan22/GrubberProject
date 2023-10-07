@@ -24,6 +24,8 @@ class Restaurant(db.Model,):
     menu_items = db.relationship('MenuItem', back_populates='restaurant', cascade='all, delete-orphan')
 
     def to_dict(self):
+        reviews_list = [review.to_dict() for review in self.reviews]
+        menu_items_list = [menu_item.to_dict() for menu_item in self.menu_items]
         return {
             'id': self.id,
             'user_id': self.user_id,
@@ -34,5 +36,8 @@ class Restaurant(db.Model,):
             "country": self.country,
             "price_range": self.price_range,
             "avg_rating": self.avg_rating,
-            "preview_image": self.preview_image
+            "preview_image": self.preview_image,
+            "reviews": reviews_list,
+            "menu_items": menu_items_list,
+            "user": self.user.to_dict(),
         }
