@@ -157,7 +157,6 @@ Our dedication to excellence extends beyond simply delivering delicious meals on
 ### Checking out with my Shopping Cart
 
 * As a logged in user, if I have at least 1 item in my shopping cart.
-  * When I'm on any page except a create/update page:
     * I can click the shopping cart drop down and press the checkout button to be redirected to the checkout page.
     * On the checkout page I will see a break down of my items and their information, and a place order button.
     * I will aso be asked to fill out a delivery address before my order can be placed. After a successfully placed order I will get a confirmation message.
