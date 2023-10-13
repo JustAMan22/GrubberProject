@@ -5,6 +5,13 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import GetAllRestaurantsPage from "./components/GetAllRestaurants";
+import GetRestaurantDetailPage from "./components/GetRestaurantDetail";
+import CreateRestaurantPage from "./components/CreateRestaurant";
+import UpdateRestaurantPage from "./components/UpdateRestaurant";
+import CreateReviewPage from "./components/CreateReview";
+import UpdateReviewPage from "./components/UpdateReview";
+import CreateMenuItemPage from "./components/CreateMenuItem";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +30,27 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path="/restaurants/create">
+            <CreateRestaurantPage />
+          </Route>
+          <Route exact path="/restaurants/:restaurantId/review/:reviewId/update">
+            <UpdateReviewPage />
+          </Route>
+          <Route exact path="/restaurants/:restaurantId/create-menu-item">
+            <CreateMenuItemPage />
+          </Route>
+          <Route exact path="/restaurants/:restaurantId/create-review">
+            <CreateReviewPage />
+          </Route>
+          <Route exact path="/restaurants/:restaurantId/edit">
+            <UpdateRestaurantPage />
+          </Route>
+          <Route exact path="/restaurants/:restaurantId">
+            <GetRestaurantDetailPage />
+          </Route>
+          <Route exact path="/">
+            <GetAllRestaurantsPage />
           </Route>
         </Switch>
       )}

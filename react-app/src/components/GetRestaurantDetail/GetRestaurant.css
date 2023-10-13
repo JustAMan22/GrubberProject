@@ -1,0 +1,18 @@
+.res-detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.indv-reviews {
+    border-top: 1px solid black;
+    margin-top: 15px;
+    width: 500px;
+}
+
+.menu-item-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

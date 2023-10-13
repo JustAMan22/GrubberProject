@@ -1,0 +1,15 @@
+.error-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.arrow-text {
+    font-size: 100px;
+}
+
+.arrow-message {
+    font-size: 25px;
+}

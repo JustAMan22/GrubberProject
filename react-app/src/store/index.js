@@ -1,9 +1,17 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
+import restaurantReducer from './restaurants';
+import reviewReducer from './reviews';
+import menuItemReducer from './menuitems';
+import cartItemReducer from './cart';
 
 const rootReducer = combineReducers({
   session,
+  restaurant: restaurantReducer,
+  review: reviewReducer,
+  menuItem: menuItemReducer,
+  cartItem: cartItemReducer
 });
 
 

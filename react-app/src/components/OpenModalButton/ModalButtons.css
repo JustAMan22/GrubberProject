@@ -1,0 +1,7 @@
+.modal-buttons {
+    border: none;
+    width: fit-content;
+    margin-bottom: 10px;
+    font-size: 13px;
+    cursor: pointer;
+}

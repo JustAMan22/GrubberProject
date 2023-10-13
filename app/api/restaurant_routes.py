@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, abort
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import db, Restaurant, Review, User, MenuItem, ShoppingCartItem, ShoppingCart
 from app.forms.restaurant_form import RestaurantForm
@@ -6,6 +6,7 @@ from app.forms.review_form import ReviewForm
 from app.forms.menuitem_form import MenuItemForm
 from app.forms.shoppingcartitem import ShoppingCartItemForm
 from statistics import mean
+from base64 import b64encode
 
 restaurant_routes = Blueprint('restaurant', __name__)
 
@@ -46,7 +47,6 @@ def get_all_restaurants():
 @login_required
 def create_reastaurant():
     form = RestaurantForm()
-
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         restaurant = Restaurant(
@@ -83,8 +83,6 @@ def get_one_restaurant(id):
         return res.to_dict()
     return {"errors": "No restaurant found."}
 
- # Update the details of a specific restaurant
-
 
 @restaurant_routes.route('/<int:id>/edit', methods=['PUT'])
 @login_required
@@ -116,8 +114,8 @@ def update_one_restaurant(id):
                 db.session.commit()
                 return restaurant.to_dict()
             return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-        return {"errors": "You must own this restaurant to complete this action."}, 401
-    return {"errors": "No restaurant found."}, 404
+        abort(401)  # Unauthorized: The user doesn't own this restaurant
+    abort(404)  # Not Found: No restaurant found
 
 
 # Delete a Restaurant
@@ -171,10 +169,9 @@ def create_review(id):
             db.session.commit()
             return review.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    
 
- # Update a specific review for a specific spot
-
-
+ # Update a specific review for a specific restaurant
 @restaurant_routes.route("/<int:id>/review/<int:reviewId>", methods=["PUT"])
 @login_required
 def update_review(id, reviewId):
@@ -241,8 +238,6 @@ def create_menu_item(id):
     return {"errors": "Restaurant not found."}, 404
 
  # Update a specific menu item for a specific restaurant
-
-
 @restaurant_routes.route("/<int:id>/menu-item/<int:menuItemId>", methods=["PUT"])
 @login_required
 def update_menu_item(id, menuItemId):
@@ -335,4 +330,3 @@ def create_item_and_cart(id, menuItemId):
             return {"errors": "You cannot add menu items from multiple restaurants."}, 401
         return {"errors": "Menu item not found."}, 404
     return {"errors": "Restaurant not found."}, 404
-
