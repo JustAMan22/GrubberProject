@@ -20,7 +20,6 @@ class Restaurant(db.Model,):
 
     user = db.relationship("User", back_populates="restaurants")
     reviews = db.relationship("Review", back_populates="restaurant", cascade='all, delete-orphan')
-    cart = db.relationship('ShoppingCart', back_populates='restaurant')
     menu_items = db.relationship('MenuItem', back_populates='restaurant', cascade='all, delete-orphan')
 
     def to_dict(self):

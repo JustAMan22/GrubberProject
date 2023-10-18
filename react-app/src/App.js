@@ -12,6 +12,8 @@ import UpdateRestaurantPage from "./components/UpdateRestaurant";
 import CreateReviewPage from "./components/CreateReview";
 import UpdateReviewPage from "./components/UpdateReview";
 import CreateMenuItemPage from "./components/CreateMenuItem";
+import CheckoutPage from "./components/CheckoutPage";
+import OrderSuccessfulPage from "./components/SuccessfulOrder";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +50,12 @@ function App() {
           </Route>
           <Route exact path="/restaurants/:restaurantId">
             <GetRestaurantDetailPage />
+          </Route>
+          <Route exact path="/checkout">
+            <CheckoutPage />
+          </Route>
+          <Route exact path="/order-confirmation">
+            <OrderSuccessfulPage />
           </Route>
           <Route exact path="/">
             <GetAllRestaurantsPage />

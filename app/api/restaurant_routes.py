@@ -296,7 +296,6 @@ def create_item_and_cart(id, menuItemId):
                 if shopping_cart is None:
                     user_cart = ShoppingCart(
                         user_id=current_user.id,
-                        restaurant_id=restaurant.id
                     )
                     db.session.add(user_cart)
                     db.session.commit()

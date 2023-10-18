@@ -1,0 +1,29 @@
+.checkout-page-container {
+    display: flex;
+    margin-top: 100px;
+    justify-content: space-evenly;
+}
+
+.checkout-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:  1px solid black;
+    width: 50vw;
+    height: 50vh;
+}
+
+.checkout-cart-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 50vw;
+    height: 50vh;
+}
+
+.place-order-button-div {
+    position: absolute;
+    bottom: 30%;
+    left: 48%;
+}

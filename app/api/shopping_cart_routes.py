@@ -10,16 +10,20 @@ from statistics import mean
 shopping_cart_routes = Blueprint('shoppingcart', __name__)
 
 # Get all cart items for current user
+
+
 @shopping_cart_routes.route("/cart-items")
 @login_required
 def get_user_cart_items():
-    user_cart = ShoppingCart.query.filter(ShoppingCart.user_id == current_user.id).first()
+    user_cart = ShoppingCart.query.filter(
+        ShoppingCart.user_id == current_user.id).first()
     results = []
     if user_cart:
-        cart_items = ShoppingCartItem.query.filter(ShoppingCartItem.cart_id == user_cart.id)
+        cart_items = ShoppingCartItem.query.filter(
+            ShoppingCartItem.cart_id == user_cart.id)
         if cart_items:
             for cart_item in cart_items:
-                results.append(cart_item.to_dict()) 
+                results.append(cart_item.to_dict())
             return results
         return {"errors": "This user has no cart items."}
     return {"errors": "This user does not have a shopping cart."}
@@ -32,7 +36,7 @@ def clear_shopping_cart():
 
     cart = ShoppingCart.query.filter(
         ShoppingCart.user_id == current_user.id).first()
-    
+
     if cart:
         if cart.user_id == current_user.id:
             db.session.delete(cart)
@@ -49,10 +53,10 @@ def clear_one_cart_item(cartId):
 
     cart = ShoppingCart.query.filter(
         ShoppingCart.user_id == current_user.id).first()
-    
+
     if cart:
-        cart_item = ShoppingCartItem.query.get(cartId)
         if cart.user_id == current_user.id:
+            cart_item = ShoppingCartItem.query.get(cartId)
             if cart_item:
                 db.session.delete(cart_item)
                 db.session.commit()
@@ -60,3 +64,14 @@ def clear_one_cart_item(cartId):
             return {"errors": "Cart item not found."}, 401
         return {'error': 'You must own the cart to complete this action.'}, 401
     return {'error': 'No cart found.'}, 404
+
+
+#Get a user cart
+@shopping_cart_routes.route("/")
+@login_required
+def get_user_cart():
+    userCart = ShoppingCart.query.filter(
+        ShoppingCart.user_id == current_user.id).first()
+    if userCart:
+        return userCart.to_dict()
+    return {"errors": "User has no cart!"}, 404
