@@ -6,11 +6,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_menuitems():
     menuitem1 = MenuItem(
-        restaurant_id=1, name="Yummy Taco", description="Very good trust me", price=2.99, preview_image="https://www.thewholesomedish.com/wp-content/uploads/2019/06/The-Best-Classic-Tacos-550.jpg")
+        restaurant_id=1, name="Elder Flower & Blueberry", description="dairy-free elderflower semifreddo with coconut yogurt", price=79.99, preview_image="https://cdn.discordapp.com/attachments/721867989632155649/1167729171485691954/1234216114.png")
     menuitem2 = MenuItem(
-        restaurant_id=2, name="Yummy Burger", description="Very good trust me", price=3.99, preview_image="https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Scrum-Delicious-Burgers_EXPS_CHMZ19_824_B10_30_2b.jpg")
+        restaurant_id=2, name="Nova Scotia Lobster", description="Garden Broccoli 'à la Plancha,' Preserved Meyer Lemon, Cauliflower 'Confetti' and Creamy Lobster Broth", price=109.99, preview_image="https://cdn.discordapp.com/attachments/721867989632155649/1167730312340590662/67245786_2915595885148657_8477558851464331264_n.jpg")
     menuitem3 = MenuItem(
-        restaurant_id=3, name="Most Delicious Lasagna", description="The best trust me", price=6.99, preview_image="https://shewearsmanyhats.com/wp-content/uploads/2014/10/lasagna-1.jpg")
+        restaurant_id=3, name="Taragai", description="Thinly Sliced Taragai; Saffron Gelée, Extra Virgin Olive Oil", price=199.99, preview_image="https://imageio.forbes.com/specials-images/imageserve/639330915a1a8f861db13be4/Le-Bernardin-for-Forbes-2022-All-Star-Eateries-In-New-York-/0x0.jpg")
 
     db.session.add(menuitem1)
     db.session.add(menuitem2)
