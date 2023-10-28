@@ -41,7 +41,7 @@ function LoginFormModal() {
 				<div className="login-title-modal">login.</div>
 				<ul>
 					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
+						<li key={idx} id="error-login-text">{error}</li>
 					))}
 				</ul>
 				<div className="modal-login">

@@ -8,7 +8,7 @@ def seed_menuitems():
     menuitem1 = MenuItem(
         restaurant_id=1, name="Elder Flower & Blueberry", description="dairy-free elderflower semifreddo with coconut yogurt", price=79.99, preview_image="https://cdn.discordapp.com/attachments/721867989632155649/1167729171485691954/1234216114.png")
     menuitem2 = MenuItem(
-        restaurant_id=2, name="Nova Scotia Lobster", description="Garden Broccoli 'à la Plancha,' Preserved Meyer Lemon, Cauliflower 'Confetti' and Creamy Lobster Broth", price=109.99, preview_image="https://cdn.discordapp.com/attachments/721867989632155649/1167730312340590662/67245786_2915595885148657_8477558851464331264_n.jpg")
+        restaurant_id=2, name="Nova Scotia Lobster", description="à la Plancha,' Preserved Meyer Lemon, Cauliflower 'Confetti' and Creamy Lobster Broth", price=109.99, preview_image="https://cdn.discordapp.com/attachments/721867989632155649/1167730312340590662/67245786_2915595885148657_8477558851464331264_n.jpg")
     menuitem3 = MenuItem(
         restaurant_id=3, name="Taragai", description="Thinly Sliced Taragai; Saffron Gelée, Extra Virgin Olive Oil", price=199.99, preview_image="https://imageio.forbes.com/specials-images/imageserve/639330915a1a8f861db13be4/Le-Bernardin-for-Forbes-2022-All-Star-Eateries-In-New-York-/0x0.jpg")
 

@@ -69,6 +69,9 @@ const CreateMenuItemPage = () => {
 		if (price > 10000) {
 			errors.price = "price must be 10,000 or less!";
 		}
+		if (price <= 0) {
+			errors.price = "invalid price!";
+		}
 		if (!preview_image.length) {
 			errors.preview_image = "preview image is required!";
 		}

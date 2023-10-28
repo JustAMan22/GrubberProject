@@ -170,3 +170,8 @@
 	color: #e6b972;
 	font-weight: bolder;
 }
+
+#error-login-text {
+	color: white;
+	list-style-type: none;
+}

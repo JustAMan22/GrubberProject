@@ -96,3 +96,8 @@
 	transition: 0.5s ease;
 }
 
+#error-signup-text {
+	color: white;
+	list-style: none;
+}
+
