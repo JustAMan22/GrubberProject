@@ -75,45 +75,61 @@ function UpdateReviewPage() {
 		<div className="create-review-container">
 			<div className="title-and-review-container">
 				<div className="create-review-title">
-					modify your review.
+					update your review.
 				</div>
 				<form onSubmit={handleSubmit}>
 					<div className="review-content-main">
 						<div className="form-row-stars-rating-container">
-							<div className="stars-container">
-								<div className="rating">
-									<div className="stars">
-										{[5, 4, 3, 2, 1].map((star) => (
-											<div
-												key={star}
-												className={`star ${
-													star <= stars
-														? "filled"
-														: ""
-												}`}
-												onClick={() => setStars(star)}
-											>
-												<i
-													id="review-star"
-													className="fa-solid fa-star"
-												></i>
-											</div>
-										))}
-									</div>
-									<div id="select-rating-text">
-										select your rating
+							<div className="inside-div-container">
+								<div className="stars-container">
+									<div className="rating">
+										<div className="stars">
+											{[5, 4, 3, 2, 1].map((star) => (
+												<div
+													key={star}
+													className={`star ${
+														star <= stars
+															? "filled"
+															: ""
+													}`}
+													onClick={() =>
+														setStars(star)
+													}
+												>
+													<i
+														id="review-star"
+														className="fa-solid fa-star"
+													></i>
+												</div>
+											))}
+										</div>
+										<div id="select-rating-text">
+											select your rating
+										</div>
 									</div>
 								</div>
+								<div className="text-below-rating-container">
+									<div id="how-was-the-text">
+										things to consider:
+									</div>
+									<div className="rating-categories">
+										<div id="driver-text">driver</div>
+										<div id="food-text">food</div>
+										<div id="wai-time-text">wait time</div>
+									</div>
+								</div>
+								<label className="create-review-label">
+									<textarea
+										type="text"
+										value={review_text}
+										placeholder="type your review here..."
+										onChange={(e) =>
+											setReview(e.target.value)
+										}
+										className="create-review-input"
+									/>
+								</label>
 							</div>
-							<label className="create-review-label">
-								<textarea
-									type="text"
-									value={review_text}
-									placeholder="type your review here..."
-									onChange={(e) => setReview(e.target.value)}
-									className="create-review-input"
-								/>
-							</label>
 						</div>
 						<div className="all-errors-reviews">
 							{errors.review && (

@@ -10,11 +10,11 @@ const DeleteReviewPage = ({ reviewId, restaurantId }) => {
 	const { closeModal } = useModal();
 	const history = useHistory();
 
-	const handleDelete = () => {
+	const handleDelete = async () => {
 		const deletedReview = dispatch(deleteReview(reviewId));
 		if (deletedReview) {
+			await dispatch(getRestaurantDetail(restaurantId));
 			closeModal();
-			dispatch(getRestaurantDetail(restaurantId));
 			history.push(`/restaurants/${restaurantId}`);
 		}
 	};

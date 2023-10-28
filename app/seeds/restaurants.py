@@ -6,11 +6,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_restaurants():
     restaurant1 = Restaurant(
-        user_id=1, name="Taco Rain", address="229 Treadway Ct", city="Paris", state="TX", country="USA", description="A lovely taco shop with lovely tacos!", price_range=1, avg_rating=0, preview_image="https://kristineskitchenblog.com/wp-content/uploads/2023/02/tacos-recipe-16-2.jpg" )
+        user_id=1, name="Eleven Madison Park", address="11 Madison Ave", city="New York", state="NY", country="USA", description="Upscale American tasting menus from chef Daniel Humm served in a high-ceilinged art deco space", price_range=1, avg_rating=0, preview_image="https://cdn.discordapp.com/attachments/721867989632155649/1167722697141260309/Eleven-Madison-Park-Debuts-An-Abbreviated-Tasting-Menu-FT-3-BLOG0323-dc04cb9a40a84284a9f930031a71d248.jpg" )
     restaurant2 = Restaurant(
-        user_id=2, name="Burger Wind", address="300 Burger Sparta", city="Lacedaemon", state="Sparta", country="Greece", description="A lovely burger shop with lovely burger!", price_range=2, avg_rating=0, preview_image="https://4.bp.blogspot.com/_sOq6xu3HQpU/S9XEgvIuR1I/AAAAAAAAAl4/GUmR4YSNzLA/s1600/barley-spartan-gruel.4.26.10-900.jpg" )
+        user_id=2, name="The French Laundry", address="6640 Washington St", city="Yountville", state="CA", country="USA", description="Chef Thomas Keller's refined fixed-price meals continually draw food lovers to this stone farmhouse.", price_range=4, avg_rating=0, preview_image="https://cdn.discordapp.com/attachments/721867989632155649/1167723210704441414/tk.com_tfl_2.jpg" )
     restaurant3 = Restaurant(
-        user_id=3, name="Lasagna Palace", address="600 Ricotta Drive", city="Rome", state="Lazio", country="Italy", description="A lovely lasgna shop with lovely lasgna!", price_range=3, avg_rating=0, preview_image="https://www.melskitchencafe.com/wp-content/uploads/2013/04/Lasagna-Close-PSD.jpg" )
+        user_id=3, name="Le Bernardin", address="155 W 51st St", city="New York", state="NY ", country="USA", description="Elite French restaurant offers chef Eric Ripert's refined seafood, expert service & luxurious decor.", price_range=4, avg_rating=0, preview_image="https://media.timeout.com/images/103139458/750/422/image.jpg" )
 
     db.session.add(restaurant1)
     db.session.add(restaurant2)

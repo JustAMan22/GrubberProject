@@ -6,11 +6,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_reviews():
     review1 = Review(
-        user_id=1, restaurant_id=1, review_text="Hello!", stars=3)
+        user_id=1, restaurant_id=1, review_text="The chef here makes superb quality of food.", stars=5)
     review2 = Review(
-        user_id=2, restaurant_id=2, review_text="Hi!!", stars=4)
+        user_id=2, restaurant_id=2, review_text="The food made my tummy tingle in the best way possible!", stars=5)
     review3 = Review(
-        user_id=3, restaurant_id=3, review_text="AMAZING!!!", stars=5)
+        user_id=3, restaurant_id=3, review_text="Whats the name of this place again? Drool central?..Yum!", stars=5)
 
     db.session.add(review1)
     db.session.add(review2)

@@ -131,20 +131,18 @@ function GetAllRestaurantsPage() {
 														className="fa-solid fa-comment"
 													></i>
 													<span id="res-preview-review-text">
-														"
 														{restaurant?.reviews[
 															restaurant?.reviews
 																.length - 1
 														]?.review_text.slice(
 															0,
-															90
+															60
 														)}
-														"
 														{restaurant?.reviews[
 															restaurant?.reviews
 																.length - 1
 														]?.review_text.length >
-														67 ? (
+														60 ? (
 															<>
 																<span id="res-more-text">
 																	...more

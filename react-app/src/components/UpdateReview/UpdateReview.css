@@ -1,0 +1,342 @@
+.review-content-main {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.create-review-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.title-and-review-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.form-row-stars-rating-container {
+	display: flex;
+	border-radius: 5px;
+	width: 725px;
+	height: 470px;
+	border: 1px solid rgba(255, 255, 255, 0.075);
+	box-shadow: rgba(191, 154, 94, 0.144) 0px 5px 15px;
+	transition: 0.5s ease;
+}
+
+.inside-div-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 725px;
+	height: 470px;
+}
+
+/* .form-row-stars-rating-container:hover {
+	border: 1px solid rgba(255, 255, 255, 0.158);
+	box-shadow: rgba(191, 154, 94, 0.301) 0px 5px 15px;
+} */
+
+.create-review-input {
+	resize: none;
+	width: 578px;
+	height: 270px;
+	font-size: 15px;
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	font-weight: bolder;
+	border: 1px solid rgba(255, 255, 255, 0.062);
+	border-radius: 3px;
+	padding: 5px;
+	caret-color: white;
+}
+
+.create-review-input:focus,
+input:focus {
+	outline: none;
+}
+
+.create-review-input::placeholder {
+	outline: none;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.create-review-input::-webkit-scrollbar {
+	width: 6px;
+	cursor: pointer;
+}
+
+.create-review-input::-webkit-scrollbar-thumb {
+	background-image: linear-gradient(
+		to top,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	border-radius: 6px;
+	padding-left: 50px;
+	cursor: pointer;
+}
+
+.create-review-input::-webkit-scrollbar-thumb:hover {
+	color: #bf9a5e;
+	cursor: pointer;
+}
+
+#review-star {
+	color: rgba(255, 255, 255, 0.192);
+}
+
+.create-review-title {
+	font-size: 45px;
+	margin: 0 0 20px 0;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rating {
+	display: flex;
+	justify-content: space-between;
+}
+
+#select-rating-text {
+	color: rgb(255, 255, 255);
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin: 0 0 1rem 5px;
+	font-size: 15px;
+}
+
+.stars-container {
+	display: flex;
+	align-items: center;
+	width: 578px;
+}
+
+.stars {
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 25px;
+	padding-top: 10px;
+	height: max-content;
+}
+
+.stars-text {
+	font-size: 14px;
+	padding-left: 5px;
+	text-align: center;
+}
+
+.star {
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	border-radius: 4px;
+	margin-right: 2.5px;
+	margin-left: 2.5px;
+	transition: 0.5s ease;
+	font-size: 50px;
+	height: max-content;
+}
+
+.star.filled {
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	transition: 0.5s ease;
+}
+
+.star:hover {
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+}
+
+.star:hover ~ .star {
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+}
+
+.create-review-submit-button {
+	width: 350px;
+	height: 50px;
+	border: 0.3px solid rgba(191, 154, 94, 0.3);
+	font-size: 16px;
+	border-radius: 30px;
+	margin-top: 20px;
+	color: #ffffff;
+	background-color: transparent;
+	transition: 0.5s ease;
+	cursor: pointer;
+}
+
+.create-review-submit-button:hover {
+	cursor: pointer;
+	box-shadow: rgba(191, 154, 94, 0.5) 0px 2px 10px;
+}
+
+.create-review-error-div {
+	padding: 0px;
+	margin-top: 10px;
+	width: 625px;
+}
+
+.all-errors-reviews {
+	display: flex;
+	flex-direction: column;
+}
+
+.create-review-error-text,
+.create-stars-error-text {
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.692);
+	font-weight: 800;
+}
+
+#driver-text {
+	display: flex;
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	align-items: center;
+	font-weight: bolder;
+	height: 25px;
+	padding: 0 3px 0 0;
+}
+
+#food-text {
+	display: flex;
+	align-items: center;
+	height: 25px;
+	padding: 0 3px 0 0;
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	align-items: center;
+	font-weight: bolder;
+}
+
+#wai-time-text {
+	display: flex;
+	align-items: center;
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	align-items: center;
+	font-weight: bolder;
+	height: 25px;
+	padding: 0 3px 0 0;
+}
+
+.text-below-rating-container {
+	display: flex;
+	width: 578px;
+}
+
+#how-was-the-text {
+	display: flex;
+	height: 25px;
+	align-items: center;
+	color: white;
+	margin: 0 0 5px 5px;
+}
+
+.rating-categories {
+	display: flex;
+	margin: 0 0 0 5px;
+	color: white;
+	width: 140px;
+	justify-content: space-between;
+	font-style: italic;
+}

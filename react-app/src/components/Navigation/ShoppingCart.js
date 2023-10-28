@@ -148,7 +148,10 @@ function ShoppingCart({ user, isLoaded }) {
 				cartValues.length >= 1 ? (
 					<div className="cart-item-container">
 						{Object?.values(cartItems)?.map((cartItem) => (
-							<div key={cartItem?.id} className="indv-cart-items-container-container">
+							<div
+								key={cartItem?.id}
+								className="indv-cart-items-container-container"
+							>
 								<div
 									key={cartItem?.id}
 									className="indv-cart-items"
@@ -181,7 +184,9 @@ function ShoppingCart({ user, isLoaded }) {
 												<span id="price-dollar-sign-text">
 													$
 												</span>
-												{cartItem?.menu_item?.price}
+												{cartItem?.menu_item?.price.toFixed(
+													2
+												)}
 												<span className="quantity-btns-only">
 													<span className="minus-btn-span">
 														<button
