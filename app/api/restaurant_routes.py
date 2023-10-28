@@ -25,8 +25,13 @@ def validation_errors_to_error_messages(validation_errors):
 # Get all restaurants
 @restaurant_routes.route("/")
 def get_all_restaurants():
+    search_query = request.args.get("q")
+    if search_query:
+        restaurants = Restaurant.query.filter(
+            Restaurant.name.ilike(f"%{search_query}%")).all()
+    else:
+        restaurants = Restaurant.query.all()
 
-    restaurants = Restaurant.query.all()
     results = []
     for restaurant in restaurants:
         id = restaurant.id
@@ -56,6 +61,7 @@ def create_reastaurant():
             city=form.data['city'],
             state=form.data['state'],
             country=form.data['country'],
+            description=form.data['description'],
             price_range=form.data['price_range'],
             avg_rating=0,
             preview_image=form.data["preview_image"]
@@ -101,6 +107,7 @@ def update_one_restaurant(id):
                 restaurant.city = form.data['city']
                 restaurant.state = form.data['state']
                 restaurant.country = form.data['country']
+                restaurant.description = form.data['description']
                 restaurant.price_range = form.data['price_range']
                 restaurant.preview_image = form.data["preview_image"]
                 reviews = Review.query.filter(Review.restaurant_id == id)
@@ -169,9 +176,10 @@ def create_review(id):
             db.session.commit()
             return review.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-    
 
  # Update a specific review for a specific restaurant
+
+
 @restaurant_routes.route("/<int:id>/review/<int:reviewId>", methods=["PUT"])
 @login_required
 def update_review(id, reviewId):
@@ -238,6 +246,8 @@ def create_menu_item(id):
     return {"errors": "Restaurant not found."}, 404
 
  # Update a specific menu item for a specific restaurant
+
+
 @restaurant_routes.route("/<int:id>/menu-item/<int:menuItemId>", methods=["PUT"])
 @login_required
 def update_menu_item(id, menuItemId):

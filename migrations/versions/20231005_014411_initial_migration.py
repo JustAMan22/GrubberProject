@@ -45,6 +45,7 @@ def upgrade():
                     sa.Column('city', sa.String(), nullable=False),
                     sa.Column('state', sa.String(), nullable=False),
                     sa.Column('country', sa.String(), nullable=False),
+                    sa.Column('description', sa.String(), nullable=False),
                     sa.Column('price_range', sa.Integer(), nullable=False),
                     sa.Column('avg_rating', sa.Float(), nullable=False),
                     sa.Column('preview_image', sa.String(), nullable=False),

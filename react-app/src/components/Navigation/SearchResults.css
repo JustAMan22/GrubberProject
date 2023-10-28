@@ -1,0 +1,25 @@
+/* Add this CSS to your stylesheet or component styles */
+.search-results-dropdown {
+	position: absolute;
+	top: 100%; /* Position it below the search bar */
+	left: 0;
+	width: 100%;
+	background: white;
+	border: 1px solid #ccc;
+	z-index: 1000; /* Ensure it appears above other content */
+	max-height: 200px; /* Set a max height or use overflow-y for scrolling */
+	overflow-y: auto;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styling for each result item */
+.search-results-dropdown > div {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+/* Style the hover effect for each result item */
+.search-results-dropdown > div:hover {
+	background-color: #f0f0f0;
+	cursor: pointer;
+}

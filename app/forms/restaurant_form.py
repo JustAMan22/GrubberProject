@@ -10,5 +10,6 @@ class RestaurantForm(FlaskForm):
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
     country = StringField('country', validators=[DataRequired()])
+    description = StringField('description', validators=[DataRequired()])
     price_range = IntegerField('price_range', validators=[DataRequired()])
     preview_image = StringField("preview_image", validators=[DataRequired()])

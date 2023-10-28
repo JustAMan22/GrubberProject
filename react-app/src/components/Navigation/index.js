@@ -2,33 +2,67 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
-import "./Navigation.css";
 import ShoppingCart from "./ShoppingCart";
+// import SearchBar from "./SearchBar";
+// import { getAllRestaurants } from "../../store/restaurants";
+import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
-  const sessionUser = useSelector((state) => state.session.user);
+	const sessionUser = useSelector((state) => state.session.user);
+	// const dispatch = useDispatch();
 
-  return (
-    <ul className="navbar-ul">
-      <li className="home-button-navbar">
-        <NavLink exact to="/">
-          <img
-            className="home-logo"
-            src="https://cdn.discordapp.com/attachments/1115823811116400650/1161148048131489962/GrubberLogo1.png?ex=65373e63&is=6524c963&hm=5cf491a305a3ea5d026a05eb14338cefd62e08caa094d4fcafb73576a60e7045&"
-            alt="grubber logo"
-          ></img>
-        </NavLink>
-      </li>
-      {isLoaded && (
-        <div className="profile-button-navbar">
-          <ProfileButton user={sessionUser} />
-          <div>
-            <ShoppingCart user={sessionUser} />
-          </div>
-        </div>
-      )}
-    </ul>
-  );
+	// const handleLogoClick = () => {
+	// 	dispatch(getAllRestaurants());
+	// };
+
+	return (
+		<ul className="navbar-ul">
+			<li className="home-button-navbar">
+				<NavLink exact to="/">
+					<img
+						className="home-logo"
+						src="https://cdn.discordapp.com/attachments/1115823811116400650/1164393415245582436/grubberLogo2.0-Gold.png"
+						alt="grubber logo"
+						// onClick={handleLogoClick}
+					/>
+				</NavLink>
+			</li>
+			{/* <div id="search-bar-container">
+				<SearchBar />
+			</div> */}
+			{isLoaded && (
+				<div className="profile-button-navbar">
+					{isLoaded && sessionUser ? (
+						<>
+							<div className="welcome-user-msg-container">
+								<span className="hi-user-msg-text">
+									hello{" "}
+									<span id="username-text">
+										{sessionUser?.username}
+									</span>
+									,
+								</span>
+								<div className="welcomeback-msg-text">
+									welcome back.
+								</div>
+							</div>
+						</>
+					) : (
+						<div className="welcome-user-msg-container">
+							<span className="hi-user-msg-text">
+								hello <span id="username-text">Guest,</span>
+							</span>
+							<div className="welcomeback-msg-text">welcome.</div>
+						</div>
+					)}
+					<ProfileButton user={sessionUser} />
+					<div>
+						<ShoppingCart isLoaded={isLoaded} user={sessionUser} />
+					</div>
+				</div>
+			)}
+		</ul>
+	);
 }
 
 export default Navigation;

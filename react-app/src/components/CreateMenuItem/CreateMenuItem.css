@@ -1,7 +1,166 @@
 .create-menu-item-container {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+}
+
+.menu-item-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 1px solid rgba(255, 255, 255, 0.075);
+	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+	height: 30rem;
+	width: 35rem;
+}
+
+.input-fields-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 15rem;
+}
+
+.create-menu-item-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 35rem;
+}
+
+.button-photo-container {
+	display: flex;
+	justify-content: center;
+}
+
+.image-upload-container {
+	display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 150px;
+  width: 32rem;
+  margin: 20px 0 0 0;
+}
+
+#preview-image-error-text-menu {
+  /* margin: 10px 0 0 0; */
+}
+
+#menu-item-title {
+	display: flex;
+	justify-content: center;
+	margin: 10px 0 0 0;
+	color: white;
+	font-size: 25px;
+}
+
+.input-field-menu {
+	width: 15rem;
+	height: 2rem;
+	background-color: transparent;
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	color: rgba(255, 255, 255, 0.678);
+	transition: 0.5s ease;
+	padding: 5px;
+}
+
+.input-field-menu:hover {
+	border: 1px solid rgb(191, 154, 94);
+}
+
+.input-field-menu::placeholder {
+	color: rgba(255, 255, 255, 0.678);
+	/* padding: 0 0 0 10px; */
+}
+
+.name-menu,
+.price-menu,
+.description-menu {
+	color: rgba(255, 255, 255, 0.966);
+}
+
+#upload-photo-menu::file-selector-button {
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, 0.719);
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: "Rajdhani", sans-serif;
+	transition: 0.5s ease;
+	width: 10rem;
+	height: 2rem;
+}
+
+#upload-photo-menu::file-selector-button:hover {
+	color: #ffffff;
+	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+}
+
+#upload-photo-menu {
+	border: none;
+	height: 2rem;
+	padding: 0;
+}
+
+.publish-menu-item-btn {
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, 0.719);
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: "Rajdhani", sans-serif;
+	transition: 0.5s ease;
+	width: 20rem;
+	height: 2rem;
+}
+
+.menu-item-btn-container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.publish-menu-item-btn:hover {
+	color: #ffffff;
+	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+}
+
+.price-name-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.menu-item-form-desc-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0 0 0;
+}
+
+.description-menu {
+	display: flex;
+	width: 32rem;
+}
+
+#description-menu-input {
+  resize: none;
+	width: 32rem;
+	height: 6rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.error-message-text {
+  color: white;
+}
+
+#menu-desc-error {
+  display: flex;
+  width: 32rem;
 }

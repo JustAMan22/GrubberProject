@@ -18,7 +18,7 @@ export const getUserCartItems = () => async (dispatch) => {
 		const userCartItems = await res.json();
 		dispatch(getUserCartItemsAction(userCartItems));
 		return res;
-	}
+	} else return res;
 };
 
 export const deleteCartItem = (cartItemId) => async (dispatch) => {

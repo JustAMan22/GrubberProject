@@ -4,6 +4,7 @@ import { getRestaurantDetail } from "../../store/restaurants";
 import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom";
 import { deleteMenuItem, getMenuItems } from "../../store/menuitems";
+import "./DeleteMenuItem.css";
 
 const DeleteMenuItemPage = ({ menuItemId, restaurantId }) => {
 	const dispatch = useDispatch();
@@ -16,9 +17,9 @@ const DeleteMenuItemPage = ({ menuItemId, restaurantId }) => {
 				deleteMenuItem(restaurantId, menuItemId)
 			);
 			if (deletedMenuItem) {
-				closeModal();
 				await dispatch(getMenuItems(restaurantId));
 				await dispatch(getRestaurantDetail(restaurantId));
+				closeModal();
 				history.push(`/restaurants/${restaurantId}`);
 			}
 		} catch (error) {
@@ -28,16 +29,16 @@ const DeleteMenuItemPage = ({ menuItemId, restaurantId }) => {
 
 	return (
 		<div className="delete-container">
-			<h2 className="borp">Confirm Delete</h2>
-			<p className="delete-text">
-				Are you sure you want to remove this menu item?
-			</p>
-			<div className="button57-container">
-				<button className="yes-button1" onClick={() => handleDelete()}>
-					YES (Delete menu item)
+			<div className="confirm">confirm delete.</div>
+			<div className="delete-text">
+				are you sure you want to remove this menu item?
+			</div>
+			<div className="delete-buttons-container">
+				<button className="delete-btns-modal" onClick={() => handleDelete()}>
+					yes (remove menu item.)
 				</button>
-				<button className="no-button1" onClick={() => closeModal()}>
-					NO (Keep menu item)
+				<button className="delete-btns-modal" onClick={() => closeModal()}>
+					no (keep menu item.)
 				</button>
 			</div>
 		</div>

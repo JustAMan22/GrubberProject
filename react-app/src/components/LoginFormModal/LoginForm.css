@@ -1,0 +1,172 @@
+.login-modal-container {
+	z-index: 999;
+	height: 25rem;
+	width: 25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 5px;
+	background-image: linear-gradient(to left, #000000, #0a0a0a, #000000);
+	border: 1px solid rgba(255, 255, 255, 0.075);
+	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+}
+
+#modal-content {
+	border-radius: 5px;
+	background-image: linear-gradient(to left, #000000, #0a0a0a, #000000);
+}
+
+.login-modal-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 20rem;
+	z-index: 999;
+}
+
+.modal-login {
+	display: flex;
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	padding: 5px;
+	border-radius: 5px;
+	transition: 0.5s ease;
+}
+
+.modal-password {
+	display: flex;
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	padding: 5px;
+	border-radius: 5px;
+	transition: 0.5s ease;
+}
+
+#lock-modal {
+	color: white;
+	display: flex;
+	align-items: center;
+	color: white;
+	font-size: 17px;
+	margin: 0 5px 0 0;
+}
+
+#email-modal {
+	display: flex;
+	align-items: center;
+	color: white;
+	font-size: 20px;
+	margin: 0 5px 0 0;
+}
+
+#email-input {
+	background-color: transparent;
+	border: none;
+	color: white;
+	width: 15rem;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+}
+
+#password-input {
+	background-color: transparent;
+	border: none;
+	color: white;
+	width: 15rem;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+}
+
+#password-input::placeholder {
+	color: rgba(255, 255, 255, 0.788);
+	font-style: italic;
+}
+
+#email-input::placeholder {
+	color: rgba(255, 255, 255, 0.788);
+	font-style: italic;
+}
+
+.modal-login:hover,
+.modal-password:hover {
+	border: 1px solid rgb(191, 154, 94);
+}
+
+.login-title-modal {
+	color: white;
+	display: flex;
+	justify-content: center;
+	font-size: 50px;
+}
+
+.btn-container-modal {
+	display: flex;
+	justify-content: center;
+}
+
+#login-btn-modal {
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, 0.719);
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: "Rajdhani", sans-serif;
+	transition: 0.5s ease;
+	width: 10rem;
+	height: 2rem;
+}
+
+#login-btn-modal:hover {
+	color: #ffffff;
+	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+}
+
+.home-logo-modal {
+	width: 10rem;
+}
+
+.img-modal-container {
+	display: flex;
+	justify-content: center;
+}
+
+#demo-button {
+	color: rgb(185, 149, 92);
+	margin: 0 0 0 10px;
+	background-color: transparent;
+	border: none;
+	transition: 0.5s ease;
+	font-weight: bolder;
+}
+
+#demo-button:hover {
+	cursor: pointer;
+	color: #e6b972;
+	font-weight: bolder;
+}
+
+.no-account-register {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#not-member-text {
+	color: white;
+	margin: 0 5px 0 0;
+}
+
+#signup-btn-modal .modal-buttons {
+	background-color: transparent;
+	color: rgb(185, 149, 92);
+	transition: 0.5s ease;
+	font-weight: bolder;
+}
+
+#signup-btn-modal .modal-buttons:hover {
+	cursor: pointer;
+	color: #e6b972;
+	font-weight: bolder;
+}

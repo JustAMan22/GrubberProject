@@ -30,53 +30,95 @@ function SignupFormModal() {
 	};
 
 	return (
-		<>
-			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+		<div className="signup-modal-container">
+			<form className="signup-modal-form" onSubmit={handleSubmit}>
+				<div id="sign-up-text">sign up.</div>
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
-				<label>
-					Email
-					<input
-						type="text"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Username
-					<input
-						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Password
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Confirm Password
-					<input
-						type="password"
-						value={confirmPassword}
-						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
-					/>
-				</label>
-				<button type="submit">Sign Up</button>
+				<div>
+					<div className="label-input">email</div>
+					<div className="modal-login-2">
+						<div>
+							<span
+								id="email-modal"
+								className="material-symbols-outlined"
+							>
+								mail
+							</span>
+						</div>
+						<input
+							type="text"
+							id="email-input"
+							placeholder="enter your email."
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							required
+						/>
+					</div>
+				</div>
+				<div>
+					<div className="label-input">password</div>
+					<div className="modal-password-2">
+						<div>
+							<i id="lock-modal" className="fa-solid fa-lock"></i>
+						</div>
+						<input
+							type="password"
+							id="password-input"
+							placeholder="enter your password."
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							required
+						/>
+					</div>
+				</div>
+				<div>
+					<div className="label-input">username</div>
+					<div className="modal-login-2">
+						<div>
+							<div
+								id="profile-circle-modal"
+								className="material-symbols-outlined"
+							>
+								account_circle
+							</div>
+						</div>
+						<input
+							type="text"
+							id="email-input"
+							placeholder="enter your username."
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+							required
+						/>
+					</div>
+				</div>
+				<div>
+					<div className="label-input"> confirm password</div>
+					<div className="modal-password-2">
+						<div>
+							<i id="lock-modal" className="fa-solid fa-lock"></i>
+						</div>
+						<input
+							type="password"
+							id="password-input"
+							placeholder="confirm your password."
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
+							required
+						/>
+					</div>
+				</div>
+				<div className="btn-modal">
+					<button className="signup-btn-modal-32" type="submit">
+						sign up
+					</button>
+				</div>
 			</form>
-		</>
+		</div>
 	);
 }
 

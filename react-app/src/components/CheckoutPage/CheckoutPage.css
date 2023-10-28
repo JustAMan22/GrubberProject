@@ -1,29 +1,112 @@
 .checkout-page-container {
-    display: flex;
-    margin-top: 100px;
-    justify-content: space-evenly;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
 }
 
 .checkout-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border:  1px solid black;
-    width: 50vw;
-    height: 50vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 1px solid rgba(255, 255, 255, 0.075);
+	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+	border-radius: 5px;
+	width: 50rem;
+	height: 35rem;
 }
 
 .checkout-cart-items {
-    display: flex;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
     justify-content: center;
-    border: 1px solid black;
-    width: 50vw;
-    height: 50vh;
+    align-items: center;
+	width: 50rem;
+	height: 35rem;
+	margin: 0 0 0 20px;
 }
 
-.place-order-button-div {
-    position: absolute;
-    bottom: 30%;
-    left: 48%;
+.total-text-checkout {
+	color: white;
+	font-size: 20px;
+}
+
+.total-order-btn {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0 0 0;
+}
+
+.cart-item-container-checkout {
+	border: 1px solid rgba(255, 255, 255, 0.075);
+	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-items: center;
+	overflow-y: scroll;
+	width: max-content;
+	height: 35rem;
+}
+
+.cart-item-container-checkout::-webkit-scrollbar {
+	width: 6px;
+	cursor: pointer;
+}
+
+.cart-item-container-checkout::-webkit-scrollbar-thumb {
+	background-image: linear-gradient(
+		to top,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	border-radius: 6px;
+	padding-left: 50px;
+	cursor: pointer;
+}
+
+.menu-items::-webkit-scrollbar-thumb:hover {
+	color: #bf9a5e;
+	cursor: pointer;
+}
+
+.checkout-label-text {
+	color: white;
+}
+
+.delivery-info-text {
+	font-size: 40px;
+	color: white;
+}
+
+.preview-img-checkout {
+	object-fit: cover;
+	width: 85px;
+	height: 85px;
+	margin: 2px 10px 0px 6px;
+	border: 0.3px solid #bf9a5e;
+	border-radius: 10px;
+}
+.place-order-button {
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, 0.719);
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: "Rajdhani", sans-serif;
+	transition: 0.5s ease;
+	width: 10rem;
+	height: 2rem;
+}
+
+.place-order-button:hover {
+	color: #ffffff;
+	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
 }

@@ -14,6 +14,7 @@ class Restaurant(db.Model,):
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String(), nullable=False)
     country = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
     price_range = db.Column(db.Integer, nullable=False)
     avg_rating = db.Column(db.Float, nullable=False)
     preview_image = db.Column(db.String, nullable=False)
@@ -33,6 +34,7 @@ class Restaurant(db.Model,):
             "city": self.city,
             "state": self.state,
             "country": self.country,
+            "description": self.description,
             "price_range": self.price_range,
             "avg_rating": self.avg_rating,
             "preview_image": self.preview_image,

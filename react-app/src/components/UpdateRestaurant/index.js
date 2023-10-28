@@ -6,263 +6,367 @@ import UnauthorizedPage from "../ErrorPage";
 import "./UpdateRestaurant.css";
 
 const UpdateRestaurantPage = () => {
-  const dispatch = useDispatch();
-  const { restaurantId } = useParams();
-  const history = useHistory();
-  const restaurantData = useSelector((state) => state.restaurant);
-  const currentUser = useSelector((state) => state.session.user);
-  const restaurant = useMemo(() => {
-    return restaurantData ? restaurantData[restaurantId] : null;
-  }, [restaurantData, restaurantId]);
+	const dispatch = useDispatch();
+	const { restaurantId } = useParams();
+	const history = useHistory();
+	const restaurantData = useSelector((state) => state.restaurant);
+	const currentUser = useSelector((state) => state.session.user);
+	const restaurant = useMemo(() => {
+		return restaurantData ? restaurantData[restaurantId] : null;
+	}, [restaurantData, restaurantId]);
 
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [price_range, setPriceRange] = useState("");
-  const [preview_image, setPreviewImage] = useState("");
-  const [errors, setErrors] = useState({});
-  const [validSubmit, setValidSubmit] = useState(false);
+	const [name, setName] = useState("");
+	const [address, setAddress] = useState("");
+	const [city, setCity] = useState("");
+	const [state, setState] = useState("");
+	const [country, setCountry] = useState("");
+	const [description, setDescription] = useState("");
+	const [price_range, setPriceRange] = useState("");
+	const [preview_image, setPreviewImage] = useState("");
+	const [errors, setErrors] = useState({});
+	const [validSubmit, setValidSubmit] = useState(false);
 
-  useEffect(() => {
-    dispatch(getAllRestaurants());
-  }, [dispatch]);
+	useEffect(() => {
+		dispatch(getAllRestaurants());
+	}, [dispatch]);
 
-  useEffect(() => {
-    if (restaurant && currentUser) {
-      setName(restaurant.name);
-      setAddress(restaurant.address);
-      setCity(restaurant.city);
-      setState(restaurant.state);
-      setCountry(restaurant.country);
-      setPriceRange(restaurant.price_range);
-      setPreviewImage(restaurant.preview_image);
-    }
+	useEffect(() => {
+		if (restaurant && currentUser) {
+			setName(restaurant.name);
+			setAddress(restaurant.address);
+			setCity(restaurant.city);
+			setState(restaurant.state);
+			setCountry(restaurant.country);
+			setDescription(restaurant.description);
+			setPriceRange(restaurant.price_range);
+			setPreviewImage(restaurant.preview_image);
+		}
+	}, [restaurant, currentUser]);
 
-  }, [restaurant, currentUser]);
+	if (restaurant && currentUser?.id !== restaurant?.user_id) {
+		return <UnauthorizedPage />;
+	}
 
-  if (restaurant && currentUser?.id !== restaurant?.user_id) {
-    return <UnauthorizedPage />;
-  }
+	const updateName = (e) => setName(e.target.value);
+	const updateAddress = (e) => setAddress(e.target.value);
+	const updateCity = (e) => setCity(e.target.value);
+	const updateState = (e) => setState(e.target.value);
+	const updateCountry = (e) => setCountry(e.target.value);
+	const updateDescription = (e) => setDescription(e.target.value);
+	const updatePriceRange = (e) => setPriceRange(e.target.value);
 
+	const updatePreviewImage = (e) => {
+		const selectedImage = e.target.files[0];
 
-  const updateName = (e) => setName(e.target.value);
-  const updateAddress = (e) => setAddress(e.target.value);
-  const updateCity = (e) => setCity(e.target.value);
-  const updateState = (e) => setState(e.target.value);
-  const updateCountry = (e) => setCountry(e.target.value);
-  const updatePriceRange = (e) => setPriceRange(e.target.value);
+		if (selectedImage) {
+			const reader = new FileReader();
 
-  const updatePreviewImage = (e) => {
-    const selectedImage = e.target.files[0];
+			if (!selectedImage.type.match(/^image\/(png|jpe?g)$/i)) {
+				setErrors({
+					...errors,
+					preview_image: "Image must be in PNG, JPEG, or JPG format!",
+				});
+			} else {
+				reader.onload = (event) => {
+					const dataURL = event.target.result;
+					setPreviewImage(dataURL);
+					setErrors({
+						...errors,
+						preview_image: "",
+					});
+				};
 
-    if (selectedImage) {
-      const reader = new FileReader();
+				reader.readAsDataURL(selectedImage);
+			}
+		}
+	};
 
-      if (!selectedImage.type.match(/^image\/(png|jpe?g)$/i)) {
-        setErrors({
-          ...errors,
-          preview_image: "Image must be in PNG, JPEG, or JPG format!",
-        });
-      } else {
-        reader.onload = (event) => {
-          const dataURL = event.target.result;
-          setPreviewImage(dataURL);
-          setErrors({
-            ...errors,
-            preview_image: "",
-          });
-        };
+	const handleUpdateRestaurant = async (e) => {
+		e.preventDefault();
 
-        reader.readAsDataURL(selectedImage);
-      }
-    }
-  };
+		const errors = {};
+		if (!name) {
+			errors.name = "name is required!";
+		}
+		if (name.length >= 40) {
+			errors.name = "name must be less than 40 characters!";
+		}
+		if (!address) {
+			errors.address = "street address is required!";
+		}
+		if (address.length >= 25) {
+			errors.address = "address must be less than 25 characters!";
+		}
+		if (!city) {
+			errors.city = "city is required!";
+		}
+		if (city.length >= 20) {
+			errors.city = "city must be less than 20 characters!";
+		}
+		if (!state) {
+			errors.state = "state is required!";
+		}
+		if (state.length > 2 || state.length < 2) {
+			errors.state = "please use state abbreviation.";
+		}
+		if (!country) {
+			errors.country = "country is required!";
+		}
+		if (country.length >= 20) {
+			errors.country = "country must be less than 20 characters!";
+		}
+		if (!description) {
+			errors.description = "description is required!";
+		}
+		if (description.length >= 120) {
+			errors.description = "country must be less than 120 characters!";
+		}
+		if (!price_range) {
+			errors.price_range = "price range is required!";
+		}
+		if (!preview_image.length) {
+			errors.preview_image = "preview image is required!";
+		}
+		setErrors(errors);
 
-  const handleUpdateRestaurant = async (e) => {
-    e.preventDefault();
+		if (Object.values(errors).length === 0) {
+			setValidSubmit(true);
 
-    const errors = {};
-    if (!name) {
-      errors.name = "Name is required";
-    }
-    if (!address) {
-      errors.address = "Street address is required";
-    }
-    if (!city) {
-      errors.city = "City is required";
-    }
-    if (!state) {
-      errors.state = "State is required";
-    }
-    if (!country) {
-      errors.country = "Country is required";
-    }
-    if (!price_range) {
-      errors.price_range = "Price range is required";
-    }
-    setErrors(errors);
+			const restaurantDataPayload = {
+				name,
+				address,
+				city,
+				state,
+				country,
+        description,
+				price_range,
+				preview_image,
+			};
 
-    if (Object.values(errors).length === 0) {
-      setValidSubmit(true);
+			try {
+				const updatedRestaurant = await dispatch(
+					updateRestaurant(restaurantId, restaurantDataPayload)
+				);
+				if (updatedRestaurant.ok) {
+					await dispatch(getAllRestaurants());
+					history.push(`/restaurants/${restaurantId}`);
+				}
+			} catch (error) {
+				console.error("Error creating review:", error);
+				if (error instanceof Response) {
+					const responseJson = await error.json();
+					console.error("Server response:", responseJson);
+				}
+			}
+		}
+	};
 
-      const restaurantDataPayload = {
-        name,
-        address,
-        city,
-        state,
-        country,
-        price_range,
-        preview_image,
-      };
+	return (
+		<div className="create-restaurant-container">
+			<div className="form-container">
+				<div className="form-heading">
+					update your restaurant information.
+				</div>
+				<form
+					onSubmit={handleUpdateRestaurant}
+					className="create-restaurant-form"
+				>
+					<div className="grid-form-container">
+						<div className="form-group">
+							<div className="restaurantName">name</div>
+							<input
+								type="text"
+								id="restaurantName"
+								placeholder="enter your restaurant's name."
+								value={name}
+								onChange={updateName}
+								className={`input-field ${
+									errors.name ? "error" : ""
+								}`}
+							/>
+							{errors.name && (
+								<div className="error-message-container">
+									<span className="error-message-text">
+										⚠︎ {errors.name}
+									</span>
+								</div>
+							)}
+						</div>
 
-      try {
-        const updatedRestaurant = await dispatch(
-          updateRestaurant(restaurantId, restaurantDataPayload)
-        );
-        if (updatedRestaurant.ok) {
-          await dispatch(getAllRestaurants());
-          history.push(`/restaurants/${restaurantId}`);
-        }
-      } catch (error) {
-        console.error("Error creating review:", error);
-        if (error instanceof Response) {
-          const responseJson = await error.json();
-          console.error("Server response:", responseJson);
-        }
-      }
-    }
-  };
+						<div className="form-group">
+							<div className="restaurantName">price range</div>
+							<select
+								onChange={updatePriceRange}
+								id="price-range-select"
+								className={`input-field ${
+									errors.price_range ? "error" : ""
+								}`}
+								required
+							>
+								<option value="0">
+									current price:{" "}
+									{restaurant?.price_range === 4
+										? "$$$$"
+										: restaurant?.price_range === 3
+										? "$$$"
+										: restaurant?.price_range === 2
+										? "$$"
+										: restaurant?.price_range === 1
+										? "$"
+										: null}
+								</option>
+								<option value="1">$</option>
+								<option value="2">$$</option>
+								<option value="3">$$$</option>
+								<option value="4">$$$$</option>
+							</select>
+							{errors.price_range && (
+								<div className="error-message-container">
+									<span className="error-message-text">
+										⚠︎ {errors.price_range}
+									</span>
+								</div>
+							)}
+						</div>
 
-  return (
-    <>
-      {restaurant && (
-        <section className="update-restaurant-container">
-          <h2 className="form-heading">Add the Name of your Restaurant</h2>
-          <form
-            onSubmit={handleUpdateRestaurant}
-            className="create-restaurant-form"
-          >
-            <div className="form-group">
-              <label htmlFor="restaurantName">Name of your Restaurant</label>
-              <input
-                type="text"
-                id="restaurantName"
-                placeholder="Enter restaurant name"
-                value={name}
-                onChange={updateName}
-                className={`input-field ${errors.name ? "error" : ""}`}
-              />
-              {errors.name && <p className="error-message">{errors.name}</p>}
-            </div>
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                placeholder="Enter address"
-                value={address}
-                onChange={updateAddress}
-                className={`input-field ${errors.address ? "error" : ""}`}
-              />
-              <div className="form-group">
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  id="city"
-                  placeholder="Enter city"
-                  value={city}
-                  onChange={updateCity}
-                  className={`input-field ${errors.city ? "error" : ""}`}
-                />
-                {errors.city && <p className="error-message">{errors.city}</p>}
-              </div>
-              {errors.address && (
-                <p className="error-message">{errors.address}</p>
-              )}
-            </div>
-            <div className="form-group">
-              <label htmlFor="state">State</label>
-              <input
-                type="text"
-                id="state"
-                placeholder="Enter state"
-                value={state}
-                onChange={updateState}
-                className={`input-field ${errors.state ? "error" : ""}`}
-              />
-              {errors.state && <p className="error-message">{errors.state}</p>}
-            </div>
-            <h2 className="form-heading">Update your Restaurant's Address</h2>
-            <div className="form-group">
-              <label htmlFor="country">Country</label>
-              <input
-                type="text"
-                id="country"
-                placeholder="Enter country"
-                value={country}
-                onChange={updateCountry}
-                className={`input-field ${errors.country ? "error" : ""}`}
-              />
-              {errors.country && (
-                <p className="error-message">{errors.country}</p>
-              )}
-            </div>
-            <h2 className="form-heading">Set an Average Cost per Person</h2>
-            <div className="form-group">
-              <select
-                onChange={updatePriceRange}
-                className="input-field"
-                required
-              >
-                <option value="0">
-                  {restaurant?.price_range === 4
-                    ? "$$$$"
-                    : restaurant?.price_range === 3
-                    ? "$$$"
-                    : restaurant?.price_range === 2
-                    ? "$$"
-                    : restaurant?.price_range === 1
-                    ? "$"
-                    : null}
-                </option>
-                <option value="1">$</option>
-                <option value="2">$$</option>
-                <option value="3">$$$</option>
-                <option value="4">$$$$</option>
-              </select>
-              {errors.price_range && (
-                <p className="error-message">{errors.price_range}</p>
-              )}
-            </div>
+						<div className="form-group">
+							<div className="restaurantName">address</div>
+							<input
+								type="text"
+								id="address"
+								placeholder="enter your restaurant's address"
+								value={address}
+								onChange={updateAddress}
+								className={`input-field ${
+									errors.address ? "error" : ""
+								}`}
+							/>
+							{errors.address && (
+								<div className="error-message-container">
+									<span className="error-message-text">
+										⚠︎ {errors.address}
+									</span>
+								</div>
+							)}
+						</div>
+						<div className="form-group">
+							<div className="restaurantName">city</div>
+							<input
+								type="text"
+								id="city"
+								placeholder="enter your restaurant's city."
+								value={city}
+								onChange={updateCity}
+								className={`input-field ${
+									errors.city ? "error" : ""
+								}`}
+							/>
+							{errors.city && (
+								<div className="error-message-container">
+									<span className="error-message-text">
+										⚠︎ {errors.city}
+									</span>
+								</div>
+							)}
+						</div>
+						<div className="form-group">
+							<div className="restaurantName">state</div>
+							<input
+								type="text"
+								id="state"
+								placeholder="enter your restaurant's state."
+								value={state}
+								onChange={updateState}
+								className={`input-field ${
+									errors.state ? "error" : ""
+								}`}
+							/>
+							{errors.state && (
+								<div className="error-message-container">
+									<span className="error-message-text">
+										⚠︎ {errors.state}
+									</span>
+								</div>
+							)}
+						</div>
+						<div className="form-group">
+							<div className="restaurantName">country</div>
+							<input
+								type="text"
+								id="country"
+								placeholder="enter your restaurant's country."
+								value={country}
+								onChange={updateCountry}
+								className={`input-field ${
+									errors.country ? "error" : ""
+								}`}
+							/>
+							{errors.country && (
+								<div className="error-message-container">
+									<span className="error-message-text">
+										⚠︎ {errors.country}
+									</span>
+								</div>
+							)}
+						</div>
+					</div>
+					<div className="desc-container">
+						<div className="restaurantName">description</div>
+						<textarea
+							type="text"
+							id="desc-textarea"
+							placeholder="enter your description"
+							value={description}
+							onChange={updateDescription}
+							className={`input-field ${
+								errors.description ? "error" : ""
+							}`}
+						/>
+						{errors.description && (
+							<div className="error-message-container">
+								<span className="error-message-text">
+									⚠︎ {errors.description}
+								</span>
+							</div>
+						)}
+					</div>
 
-            <h2 className="form-heading">
-              Add A Preview Photo of your Restaurant
-            </h2>
-            {errors.preview_image && (
-              <p className="error-message">{errors.preview_image}</p>
-            )}
-            <input
-              type="file"
-              accept="image/png, image/jpeg, image/jpg"
-              id="upload-photo"
-              onChange={updatePreviewImage}
-              className={`input-field ${errors.preview_image ? "error" : ""}`}
-            />
-
-            <button
-              type="submit"
-              className="create-restaurant-btn"
-              disabled={validSubmit}
-            >
-              Edit Restaurant
-            </button>
-          </form>
-        </section>
-      )}
-    </>
-  );
+					<div className="publish-and-upload-container">
+						<div className="image-upload-input-container">
+							<div>
+								<input
+									type="file"
+									accept="image/png, image/jpeg, image/jpg"
+									id="upload-photo"
+									onChange={updatePreviewImage}
+									className={`input-field ${
+										errors.preview_image ? "error" : ""
+									}`}
+								/>
+								{errors.preview_image && (
+									<div className="error-message-container">
+										<span className="error-message-text">
+											⚠︎ {errors.preview_image}
+										</span>
+									</div>
+								)}
+							</div>
+						</div>
+						<div className="create-res-btn-container">
+							<button
+								id="publish-res-button"
+								type="submit"
+								className="create-restaurant-btn"
+								disabled={validSubmit}
+							>
+								update restaurant
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	);
 };
 
 export default UpdateRestaurantPage;

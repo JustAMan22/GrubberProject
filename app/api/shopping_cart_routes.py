@@ -26,7 +26,7 @@ def get_user_cart_items():
                 results.append(cart_item.to_dict())
             return results
         return {"errors": "This user has no cart items."}
-    return {"errors": "This user does not have a shopping cart."}
+    return []
 
 
 # Clear your shopping cart (delete it)

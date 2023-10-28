@@ -1,7 +1,155 @@
 .create-restaurant-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 150px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.075);
+	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+	width: 50rem;
+	height: 40rem;
+	color: white;
+}
+
+.grid-form-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-items: center;
+	gap: 20px;
+}
+
+.form-heading {
+	color: white;
+	font-size: 35px;
+}
+
+.restaurantName {
+	margin: 0 0 3px 0;
+	font-size: 18px;
+}
+
+.desc-container {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0 0 0;
+}
+
+#desc-textarea {
+	height: 7rem;
+	width: 42rem;
+	resize: none;
+	padding: 5px;
+	font-weight: bolder;
+}
+
+#desc-textarea::placeholder {
+	padding: 0;
+}
+
+#desc-textarea:focus,
+textarea:focus {
+	outline: none;
+}
+
+.input-field {
+	width: 20rem;
+	height: 2rem;
+	background-color: transparent;
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	color: rgba(255, 255, 255, 0.678);
+	transition: 0.5s ease;
+	padding: 5px;
+}
+
+.input-field:hover {
+	border: 1px solid rgb(191, 154, 94);
+}
+
+.input-field::placeholder {
+	color: rgba(255, 255, 255, 0.678);
+	/* padding: 0 0 0 10px; */
+}
+
+#price-range-select {
+	padding: 0 0 0 10px;
+}
+
+#price-range-select:focus,
+select:focus {
+	outline: none;
+}
+
+#price-range-select option {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.973);
+}
+
+.publish-and-upload-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px 0 0 0;
+	height: 50px;
+}
+
+.image-upload-input-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#upload-photo::file-selector-button {
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, 0.719);
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: "Rajdhani", sans-serif;
+	transition: 0.5s ease;
+	width: 10rem;
+	height: 2rem;
+}
+
+#upload-photo::file-selector-button:hover {
+	color: #ffffff;
+	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+}
+
+#upload-photo {
+	border: none;
+	height: 2rem;
+	padding: 0;
+}
+
+.create-res-btn-container {
+	display: flex;
+	align-items: center;
+}
+
+#publish-res-button {
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, 0.719);
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: "Rajdhani", sans-serif;
+	transition: 0.5s ease;
+	width: 10rem;
+	height: 2rem;
+}
+
+#publish-res-button:hover {
+	color: #ffffff;
+	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
 }

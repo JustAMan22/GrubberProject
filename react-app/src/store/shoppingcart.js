@@ -24,7 +24,7 @@ export const getUserCart = () => async (dispatch) => {
 		dispatch(getUserCartAction(currentUserCart));
 		return res;
 	} else {
-		console.log(res);
+		// console.log(res);
 	}
 };
 

@@ -1,6 +1,15 @@
 /* TODO Add site wide styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Rajdhani", sans-serif;
+}
+
+html {
+	background-image: linear-gradient(to left, #000000, #0a0a0a, #000000);
+}
+
+#modal {
+	z-index: 999;
 }

@@ -1,0 +1,250 @@
+.all-restaurants-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
+	margin-top: 100px;
+	width: 99vw;
+}
+
+.indv-restaurant-container {
+	display: flex;
+	width: 500px;
+	height: 300px;
+	padding: 10px;
+	border: 1px solid rgba(191, 154, 94, 0.116);
+	border-radius: 5px;
+	box-shadow: 0px 9px 30px rgba(191, 154, 94, 0.1);
+	font-family: "Rajdhani", sans-serif;
+	margin: 0 10px 10px 10px;
+	transition: 0.7s ease;
+}
+
+
+.indv-restaurant-container:hover {
+	border: 0.3px solid #bf9a5e;
+	box-shadow: rgba(191, 154, 94, 0.301) 0px 5px 15px;
+}
+
+.home-page-img {
+	display: flex;
+	width: 100%;
+	height: 700px;
+	border-bottom: 0.3px solid #bf9a5e;
+}
+
+.actl-home-img {
+	width: 33vw;
+	object-fit: cover;
+	height: 610px;
+	margin-top: 75px;
+	padding: 0 5px 0 5px;
+	border-radius: 15px;
+	box-shadow: 0px 9px 15px rgba(191, 154, 94, 0.1);
+	opacity: 0.75;
+}
+
+.res-img {
+	width: 480px;
+	height: 200px;
+	/* border: 0.3px solid #bf9a5e; */
+	border-radius: 5px;
+	/* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+	object-fit: cover;
+}
+
+.res-navlink {
+	width: 100%;
+}
+
+.res-navlink:visited,
+.res-navlink:link,
+.res-navlink:hover,
+.res-navlink:active {
+	text-decoration: none;
+	color: white;
+}
+
+.text-overlay-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
+	height: 700px;
+	text-align: center;
+	z-index: 900;
+	color: white;
+	font-weight: bold;
+}
+
+.text-overlay-span {
+	font-family: "Rajdhani", sans-serif;
+	text-transform: uppercase;
+	background-image: linear-gradient(
+		-255deg,
+		#dec489 0%,
+		#f6e084 25%,
+		#d1b372 50%,
+		#e3cc97 75%,
+		#bf9a5e 100%
+	);
+	background-size: auto auto;
+	background-clip: border-box;
+	background-size: 200% auto;
+	color: #fff;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: textclip 6s linear infinite;
+	display: inline-block;
+	font-size: 120px;
+	z-index: 900;
+}
+
+@keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
+}
+
+#res-star-icon {
+	font-size: 11px;
+	margin: 0 3px 0 0;
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+}
+
+#res-price-range {
+	margin: 0 3px 0 0;
+	font-size: 15px;
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	font-weight: bolder;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+#res-center-dot {
+	margin: 0 3px 0 0;
+	font-size: 20px;
+	color: white;
+}
+
+#res-rating-fr {
+	font-weight: bold;
+}
+
+#res-review-length {
+	font-size: 13px;
+}
+
+#res-name-text {
+	font-size: 22px;
+	font-weight: bold;
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+}
+
+#res-more-text {
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	font-style: italic;
+}
+
+#bubble-icon {
+	background-image: linear-gradient(
+		to right,
+		#dec489,
+		#f6e084,
+		#d1b372,
+		#e3cc97,
+		#bf9a5e
+	);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	margin: 0 3px 0 0;
+	font-size: 11px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+#res-preview-review-text {
+	font-size: 13px;
+	font-style: italic;
+	color: rgba(255, 255, 255, 0.575);
+}
+
+#no-review-text {
+	font-style: italic;
+	font-size: 12px;
+}
+
+.res-preview-review-container {
+	margin: 7px 0 0 0;
+	display: flex;
+	border-top: 0.3px solid #bf9a5e;
+	padding: 5px 0 0 0;
+}
+
+.res-rating-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	font-weight: normal;
+}
+
+.res-rating-name-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.res-address-text {
+	display: flex;
+	justify-content: space-between;
+}
