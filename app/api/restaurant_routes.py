@@ -7,6 +7,7 @@ from app.forms.menuitem_form import MenuItemForm
 from app.forms.shoppingcartitem import ShoppingCartItemForm
 from statistics import mean
 from base64 import b64encode
+from app.api.aws_routes import remove_file_from_s3
 
 restaurant_routes = Blueprint('restaurant', __name__)
 
@@ -133,6 +134,9 @@ def delete_one_restaurant(id):
     restaurant = Restaurant.query.get(id)
     if restaurant:
         if restaurant.user_id == current_user.id:
+            url = restaurant.preview_image
+            deleted = remove_file_from_s3(url)
+            print(deleted)
             db.session.delete(restaurant)
             db.session.commit()
             return {'message': 'Restaurant successfully deleted.'}
@@ -288,6 +292,38 @@ def delete_one_menu_item(id, menuItemId):
                 return {'message': 'Menu item successfully deleted.'}
         return {"errors": "You must own the restaurant to complete this action."}, 401
     return {'error': 'No restaurant found'}, 404
+
+# Search Filter for Restaurants
+
+
+@restaurant_routes.route("/search")
+def search_filter():
+    name = request.args.get("name")
+    # page = request.args.get('page')
+    # size = 10
+
+    # if page == None or page > 10:
+    #     page = 1
+    # offset = size * (page - 1)
+
+    results = []
+    restaurants = None
+
+    if name:
+        nameSearch = "%{}%".format(name)
+        restaurants = Restaurant.query.filter(Restaurant.name.like(nameSearch))
+    for res in restaurants:
+        id = res.id
+        reviews = Review.query.filter(Review.restaurant_id == id)
+        ratings = []
+        if reviews:
+            for review in reviews:
+                ratings.append(review.stars)
+                if len(ratings) > 0:
+                    avgRating = mean(ratings)
+                    res.rating = round(avgRating, 2)
+        results.append(res.to_dict())
+    return results
 
 
 # Create Shopping cart and Shopping cart item.

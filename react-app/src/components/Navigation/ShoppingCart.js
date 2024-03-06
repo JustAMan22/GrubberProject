@@ -8,7 +8,7 @@ import "./Navigation.css";
 function ShoppingCart({ user, isLoaded }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
-	const [showMenu, setShowMenu] = useState(false);
+	// const [showMenu, setShowMenu] = useState(false);
 	const cartItems = useSelector((state) => state?.cartItem);
 	const userCart = useSelector((state) => state?.shoppingCart);
 	const ulRef = useRef();
@@ -28,15 +28,26 @@ function ShoppingCart({ user, isLoaded }) {
 		subTotal += multipliedTotal;
 	}
 
-	const openMenu = async () => {
-		if (showMenu) return;
-		setShowMenu(true);
+	const setActiveClass = async (e) => {
 		await dispatch(getUserCartItems());
-
 		if (!isInitialFetch.current) {
 			isInitialFetch.current = true;
 		}
+		const ulDiv = document.getElementsByClassName("cart-dropdown")[0];
+		const ulClasses = ulDiv.classList;
+		e.preventDefault();
+		ulClasses.toggle("cart-hidden");
 	};
+
+	// const openMenu = async () => {
+	// 	if (showMenu) return;
+	// 	setShowMenu(true);
+	// 	await dispatch(getUserCartItems());
+
+	// 	if (!isInitialFetch.current) {
+	// 		isInitialFetch.current = true;
+	// 	}
+	// };
 
 	const cartItemRemove = async (cartItem) => {
 		const cartItemId = cartItem.id;
@@ -109,28 +120,28 @@ function ShoppingCart({ user, isLoaded }) {
 		}
 	};
 
-	const ulClassName = "cart-dropdown" + (showMenu ? "" : " cart-hidden");
+	// const ulClassName = "cart-dropdown" + (showMenu ? "" : " cart-hidden");
 
 	useEffect(() => {
 		dispatch(getUserCart());
 	}, [dispatch]);
 
-	useEffect(() => {
-		if (showMenu) {
-			const closeMenu = (e) => {
-				if (!ulRef.current.contains(e.target)) {
-					setShowMenu(false);
-				}
-			};
-			document.addEventListener("click", closeMenu);
+	// useEffect(() => {
+	// 	if (showMenu) {
+	// 		const closeMenu = (e) => {
+	// 			if (!ulRef.current.contains(e.target)) {
+	// 				setShowMenu(false);
+	// 			}
+	// 		};
+	// 		document.addEventListener("click", closeMenu);
 
-			return () => document.removeEventListener("click", closeMenu);
-		}
-	}, [showMenu]);
+	// 		return () => document.removeEventListener("click", closeMenu);
+	// 	}
+	// }, [showMenu]);
 
 	return (
 		<div>
-			<button className="shopping-cart-button" onClick={openMenu}>
+			<button className="shopping-cart-button" onClick={setActiveClass}>
 				<div className="cart-icon-and-item-count-container">
 					<span
 						className="material-symbols-outlined"
@@ -141,7 +152,7 @@ function ShoppingCart({ user, isLoaded }) {
 					{/* <span id="cart-item-count"> • {cartValues?.length}</span> */}
 				</div>
 			</button>
-			<ul className={ulClassName} ref={ulRef}>
+			<ul className="cart-dropdown cart-hidden" ref={ulRef}>
 				{isLoaded &&
 				user &&
 				userCartValue.length >= 1 &&

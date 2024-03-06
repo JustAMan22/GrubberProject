@@ -19,32 +19,32 @@ const CreateMenuItemPage = () => {
 	const updateDescription = (e) => setDescription(e.target.value);
 	const updatePrice = (e) => setPrice(e.target.value);
 	const updatePreviewImage = (e) => {
-		const selectedImage = e.target.files[0];
+		setPreviewImage(e.target.files[0]);
 
-		if (selectedImage) {
-			const reader = new FileReader();
+		// if (selectedImage) {
+		// 	const reader = new FileReader();
 
-			if (
-				!selectedImage.type.match(/^image\/(png|jpe?g)$/i) ||
-				!selectedImage.name
-			) {
-				setErrors({
-					...errors,
-					preview_image: "image must be in PNG, JPEG, or JPG format!",
-				});
-			} else {
-				reader.onload = (event) => {
-					const dataURL = event.target.result;
-					setPreviewImage(dataURL);
-					setErrors({
-						...errors,
-						preview_image: "",
-					});
-				};
+		// 	if (
+		// 		!selectedImage.type.match(/^image\/(png|jpe?g)$/i) ||
+		// 		!selectedImage.name
+		// 	) {
+		// 		setErrors({
+		// 			...errors,
+		// 			preview_image: "image must be in PNG, JPEG, or JPG format!",
+		// 		});
+		// 	} else {
+		// 		reader.onload = (event) => {
+		// 			const dataURL = event.target.result;
+		// 			setPreviewImage(dataURL);
+		// 			setErrors({
+		// 				...errors,
+		// 				preview_image: "",
+		// 			});
+		// 		};
 
-				reader.readAsDataURL(selectedImage);
-			}
-		}
+		// 		reader.readAsDataURL(selectedImage);
+		// 	}
+		// }
 	};
 
 	const handleNewMenuItem = async (e) => {
@@ -72,7 +72,7 @@ const CreateMenuItemPage = () => {
 		if (price <= 0) {
 			errors.price = "invalid price!";
 		}
-		if (!preview_image.length) {
+		if (!preview_image) {
 			errors.preview_image = "preview image is required!";
 		}
 		setErrors(errors);
@@ -80,11 +80,34 @@ const CreateMenuItemPage = () => {
 		if (Object.values(errors).length === 0) {
 			setValidSubmit(true);
 
+			let url;
+			if (preview_image) {
+				url = preview_image;
+			}
+			const formData = new FormData();
+			formData.append("url", url);
+
+			let realUrl;
+
+			if (formData) {
+				const res = await fetch("/api/images/get-aws-url", {
+					method: "POST",
+					body: formData,
+				});
+
+				if (res.ok) {
+					const resultUrl = await res.json();
+					realUrl = resultUrl;
+				} else {
+					console.log("There was an error making your post!");
+				}
+			}
+
 			const menuItemDataPayload = {
 				name,
 				description,
 				price,
-				preview_image,
+				preview_image: realUrl.url,
 			};
 
 			try {

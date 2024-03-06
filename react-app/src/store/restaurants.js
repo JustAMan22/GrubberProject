@@ -1,18 +1,18 @@
 const GET_ALL_RESTAURANTS = "GET_ALL_RESTAURANTS";
-const SEARCH_RESTAURANTS = "SEARCH_RESTAURANTS";
 const GET_RESTAURANT_DETAIL = "GET_RESTAURANT_ DETAIL";
 const CREATE_RESTAURANT = "CREATE_RESTAURANT";
 const UPDATE_RESTAURANT = "UPDATE_RESTAURANT";
 const DELETE_RESTAURANT = "DELETE_RESTAURANT";
+const SEARCHED_RESTAURANTS = "SEARCHED_RESTAURANTS";
 
 const getAllRestaurantsAction = (restaurants) => ({
 	type: GET_ALL_RESTAURANTS,
 	restaurants,
 });
 
-export const searchRestaurantsAction = (restaurants) => ({
-	type: SEARCH_RESTAURANTS,
-	restaurants,
+const getSearchedRestaurants = (filteredRestaurants) => ({
+	type: SEARCHED_RESTAURANTS,
+	filteredRestaurants,
 });
 
 const getRestaurantDetailAction = (restaurant) => ({
@@ -45,20 +45,22 @@ export const getAllRestaurants = () => async (dispatch) => {
 	}
 };
 
-export const searchRestaurants = (searchQuery) => async (dispatch) => {
-	const res = await fetch(`/api/restaurants?q=${searchQuery}`);
-	if (res.ok) {
-		const restaurants = await res.json();
-		dispatch(searchRestaurantsAction(restaurants)); // Use the new action
-	}
-};
-
 export const getRestaurantDetail = (restaurantId) => async (dispatch) => {
 	const res = await fetch(`/api/restaurants/${restaurantId}`);
 
 	if (res.ok) {
 		const restaurantDetail = await res.json();
 		dispatch(getRestaurantDetailAction(restaurantDetail));
+		return res;
+	}
+};
+
+export const getFilteredRestaurants = (name) => async (dispatch) => {
+	const res = await fetch(`/api/restaurants/search?name=${name}`);
+
+	if (res.ok) {
+		const filteredRestaurantsRes = await res.json();
+		dispatch(getSearchedRestaurants(filteredRestaurantsRes));
 		return res;
 	}
 };
@@ -106,10 +108,10 @@ const restaurantReducer = (state = {}, action) => {
 				newState[restaurant.id] = restaurant;
 			});
 			return newState;
-		case SEARCH_RESTAURANTS:
+		case SEARCHED_RESTAURANTS:
 			newState = {};
-			action.restaurants.forEach((restaurant) => {
-				newState[restaurant.id] = restaurant;
+			action.filteredRestaurants.forEach((foundRestaurant) => {
+				newState[foundRestaurant.id] = foundRestaurant;
 			});
 			return newState;
 		case GET_RESTAURANT_DETAIL:

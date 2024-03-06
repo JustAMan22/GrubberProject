@@ -10,6 +10,8 @@ from .api.auth_routes import auth_routes
 from .api.restaurant_routes import restaurant_routes
 from .api.review_routes import review_routes
 from .api.shopping_cart_routes import shopping_cart_routes
+from.api.retrieve_aws_url import image_routes
+from .api.maps import map_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -39,6 +41,8 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(restaurant_routes, url_prefix='/api/restaurants')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(shopping_cart_routes, url_prefix='/api/shoppingcart')
+app.register_blueprint(image_routes, url_prefix='/api/images')
+app.register_blueprint(map_routes, url_prefix='/api/maps')
 db.init_app(app)
 Migrate(app, db)
 

@@ -10,7 +10,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
 	border: 1px solid rgba(255, 255, 255, 0.075);
 	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
 	border-radius: 5px;
@@ -51,6 +51,17 @@
 	height: 35rem;
 }
 
+.cart-item-container-checkout2 {
+	border: 1px solid rgba(255, 255, 255, 0.075);
+	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	height: 35rem;
+	width: 40vw;
+}
+
 .cart-item-container-checkout::-webkit-scrollbar {
 	width: 6px;
 	cursor: pointer;
@@ -81,7 +92,7 @@
 }
 
 .delivery-info-text {
-	font-size: 40px;
+	font-size: 2.7rem;
 	color: white;
 }
 
@@ -109,4 +120,39 @@
 .place-order-button:hover {
 	color: #ffffff;
 	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+}
+
+.error-message-invalidAddy {
+	color: red;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 42rem;
+}
+
+#add-items-txt {
+	color: white;
+	font-size: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40vw;
+	height: 26rem;
+}
+
+#go-home-btn {
+	width: 15rem;
+	height: 2rem;
+	border-radius: 0.3rem;
+	border: 1px solid rgba(191, 154, 94, 0.733);
+	background-color: transparent;
+	color: white;
+	transition: 0.3s ease;
+	margin: 2rem 0 0 0;
+}
+
+#go-home-btn:hover {
+	border: 1px solid rgb(191, 154, 94);
+	cursor: pointer;
 }

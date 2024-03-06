@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getUserCartItems, deleteCartItem } from "../../store/cart";
 import { createCartAndCartItem } from "../../store/shoppingcart";
+import { getKey } from "../../store/maps";
+import Autocomplete from "react-google-autocomplete";
 import "./CheckoutPage.css";
 
 function CheckoutPage() {
@@ -14,14 +16,26 @@ function CheckoutPage() {
 	const [state, setState] = useState("");
 	const [country, setCountry] = useState("");
 	const [errors, setErrors] = useState({});
+	const [invalidAddyError, setInvalidAddyError] = useState("");
 	const [validSubmit, setValidSubmit] = useState(false);
 	const [validSubmitMinus, setValidSubmitMinus] = useState(false);
 	const [validSubmitAdd, setValidSubmitAdd] = useState(false);
 
-	const updateAddress = (e) => setAddress(e.target.value);
-	const updateCity = (e) => setCity(e.target.value);
-	const updateState = (e) => setState(e.target.value);
-	const updateCountry = (e) => setCountry(e.target.value);
+	const key = useSelector((state) => state.maps.key);
+
+	useEffect(() => {
+		dispatch(getUserCartItems());
+		if (!key) {
+			dispatch(getKey());
+		}
+	}, [dispatch, key]);
+
+	if (!key) return null;
+
+	// const updateAddress = (e) => setAddress(e.target.value);
+	// const updateCity = (e) => setCity(e.target.value);
+	// const updateState = (e) => setState(e.target.value);
+	// const updateCountry = (e) => setCountry(e.target.value);
 
 	const cartValues = Object.values(cartItems);
 
@@ -102,10 +116,6 @@ function CheckoutPage() {
 		}
 	};
 
-	useEffect(() => {
-		dispatch(getUserCartItems());
-	}, [dispatch]);
-
 	const handleOrderPlacement = async (e) => {
 		e.preventDefault();
 
@@ -133,6 +143,9 @@ function CheckoutPage() {
 		}
 		if (country.length >= 20) {
 			errors.country = "country must be less than 20 characters!";
+		}
+		if (cartValues.length < 1) {
+			errors.cartItem = "You must have at least one item to checkout.";
 		}
 		setErrors(errors);
 
@@ -165,84 +178,72 @@ function CheckoutPage() {
 					className="checkout-page-address-form"
 				>
 					<div className="grid-form-container">
-						<div className="form-group">
-							<div className="checkout-label-text">address</div>
-							<input
-								type="text"
-								id="address"
-								placeholder="enter your address."
-								value={address}
-								onChange={updateAddress}
-								className={`input-field ${
-									errors.address ? "error" : ""
-								}`}
+						<div className="auto-complete-container2">
+							<div
+								id="res-address-create"
+								htmlFor="auto-complete-box"
+							>
+								delivery address.
+							</div>
+							<Autocomplete
+								id="auto-complete-box2"
+								apiKey={key}
+								onPlaceSelected={(place) => {
+									if (place?.address_components) {
+										setAddress(
+											place?.address_components[0]
+												?.short_name +
+												" " +
+												place?.address_components[1]
+													?.short_name
+										);
+										place?.address_components.forEach(
+											(component) => {
+												if (
+													component?.types[0] ===
+													"locality"
+												) {
+													setCity(
+														component?.short_name
+													);
+												}
+												if (
+													component?.types[0] ===
+													"administrative_area_level_1"
+												) {
+													setState(
+														component?.short_name
+													);
+												}
+												if (
+													component?.types[0] ===
+													"country"
+												) {
+													setCountry(
+														component?.short_name
+													);
+												}
+											}
+										);
+									}
+									if (!place?.address_components) {
+										setInvalidAddyError(
+											"Please enter a valid address!"
+										);
+									} else {
+										setInvalidAddyError("");
+									}
+								}}
+								options={{
+									fields: ["ALL"],
+									componentRestrictions: { country: "US" },
+									types: ["address"],
+								}}
 							/>
-							{errors.address && (
-								<div className="error-message-container">
-									<span className="error-message-text">
-										⚠︎ {errors.address}
-									</span>
-								</div>
-							)}
-						</div>
-						<div className="form-group">
-							<div className="checkout-label-text">city</div>
-							<input
-								type="text"
-								id="city"
-								placeholder="enter your city."
-								value={city}
-								onChange={updateCity}
-								className={`input-field ${
-									errors.city ? "error" : ""
-								}`}
-							/>
-							{errors.city && (
-								<div className="error-message-container">
-									<span className="error-message-text">
-										⚠︎ {errors.city}
-									</span>
-								</div>
-							)}
-						</div>
-						<div className="form-group">
-							<div className="checkout-label-text">state</div>
-							<input
-								type="text"
-								id="state"
-								placeholder="enter your state."
-								value={state}
-								onChange={updateState}
-								className={`input-field ${
-									errors.state ? "error" : ""
-								}`}
-							/>
-							{errors.state && (
-								<div className="error-message-container">
-									<span className="error-message-text">
-										⚠︎ {errors.state}
-									</span>
-								</div>
-							)}
-						</div>
-						<div className="form-group">
-							<div className="checkout-label-text">country</div>
-							<input
-								type="text"
-								id="country"
-								placeholder="enter your country."
-								value={country}
-								onChange={updateCountry}
-								className={`input-field ${
-									errors.country ? "error" : ""
-								}`}
-							/>
-							{errors.country && (
-								<div className="error-message-container">
-									<span className="error-message-text">
-										⚠︎ {errors.country}
-									</span>
-								</div>
+							{invalidAddyError && (
+								<p className="error-message-invalidAddy">
+									⚠︎ {invalidAddyError}
+								</p>
 							)}
 						</div>
 					</div>
@@ -267,7 +268,7 @@ function CheckoutPage() {
 				</form>
 			</div>
 
-			<div className="checkout-cart-items">
+			{cartValues.length >= 1 ? (
 				<div className="cart-item-container-checkout">
 					{Object?.values(cartItems)?.map((cartItem) => (
 						<div key={cartItem.id} className="indv-cart-items">
@@ -354,7 +355,22 @@ function CheckoutPage() {
 						</div>
 					))}
 				</div>
-			</div>
+			) : (
+				<div className="cart-item-container-checkout2">
+					<div id="add-items-txt">
+						please add cart items to checkout.
+						<button
+							id="go-home-btn"
+							onClick={(e) => {
+								e.preventDefault();
+								history.push("/");
+							}}
+						>
+							go home
+						</button>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }

@@ -11,7 +11,7 @@ import "./Navigation.css";
 function ProfileButton({ user }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
-	const [showMenu, setShowMenu] = useState(false);
+	// const [showMenu, setShowMenu] = useState(false);
 	const ulRef = useRef();
 
 	const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -48,24 +48,31 @@ function ProfileButton({ user }) {
 		}${seconds} ${amOrPm}`;
 	}
 
-	const openMenu = () => {
-		if (showMenu) return;
-		setShowMenu(true);
-	};
+	function setActiveClass(e) {
+		const ulDiv = document.getElementsByClassName("profile-dropdown")[0];
+		const ulClasses = ulDiv.classList;
+		e.preventDefault();
+		ulClasses.toggle("hidden");
+	}
 
-	useEffect(() => {
-		if (!showMenu) return;
+	// const openMenu = () => {
+	// 	if (showMenu) return;
+	// 	setShowMenu(true);
+	// };
 
-		const closeMenu = (e) => {
-			if (!ulRef.current.contains(e.target)) {
-				setShowMenu(false);
-			}
-		};
+	// useEffect(() => {
+	// 	if (!showMenu) return;
 
-		document.addEventListener("click", closeMenu);
+	// 	const closeMenu = (e) => {
+	// 		if (!ulRef.current.contains(e.target)) {
+	// 			setShowMenu(false);
+	// 		}
+	// 	};
 
-		return () => document.removeEventListener("click", closeMenu);
-	}, [showMenu]);
+	// 	document.addEventListener("click", closeMenu);
+
+	// 	return () => document.removeEventListener("click", closeMenu);
+	// }, [showMenu]);
 
 	const handleLogout = (e) => {
 		e.preventDefault();
@@ -74,12 +81,12 @@ function ProfileButton({ user }) {
 		history.push("/");
 	};
 
-	const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-	const closeMenu = () => setShowMenu(false);
+	// const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+	// const closeMenu = () => setShowMenu(false);
 
 	return (
 		<>
-			<button className="profile-button" onClick={openMenu}>
+			<button className="profile-button" onClick={setActiveClass}>
 				<span
 					className="material-symbols-outlined"
 					id="profile-button-id"
@@ -87,7 +94,7 @@ function ProfileButton({ user }) {
 					person
 				</span>
 			</button>
-			<ul className={ulClassName} ref={ulRef}>
+			<ul className="profile-dropdown hidden" ref={ulRef}>
 				{user ? (
 					<div className="profile-all-txt-container">
 						<div className="name-date-container">
@@ -140,14 +147,14 @@ function ProfileButton({ user }) {
 						<span className="hey-there-text">welcome.</span>
 						<OpenModalButton
 							buttonText="Log In"
-							onItemClick={closeMenu}
+							// onItemClick={setActiveClass}
 							modalComponent={<LoginFormModal />}
 						/>
 
 						<OpenModalButton
 							id="sign-up-btn-modal"
 							buttonText="Sign Up"
-							onItemClick={closeMenu}
+							// onItemClick={setActiveClass}
 							modalComponent={<SignupFormModal />}
 						/>
 					</div>

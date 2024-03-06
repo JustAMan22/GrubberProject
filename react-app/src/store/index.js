@@ -6,6 +6,9 @@ import reviewReducer from "./reviews";
 import menuItemReducer from "./menuitems";
 import cartItemReducer from "./cart";
 import shoppingCartReducer from "./shoppingcart";
+import foundRestaurantsReducer from "./restaurantSearch";
+import awsReducer from "./aws";
+import mapsReducer from "./maps";
 
 const rootReducer = combineReducers({
 	session,
@@ -14,6 +17,9 @@ const rootReducer = combineReducers({
 	menuItem: menuItemReducer,
 	cartItem: cartItemReducer,
 	shoppingCart: shoppingCartReducer,
+	searchResults: foundRestaurantsReducer,
+	url: awsReducer,
+	maps: mapsReducer,
 });
 
 let enhancer;
