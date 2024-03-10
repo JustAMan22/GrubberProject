@@ -8,6 +8,7 @@ from app.forms.shoppingcartitem import ShoppingCartItemForm
 from statistics import mean
 from base64 import b64encode
 from app.api.aws_routes import remove_file_from_s3
+from sqlalchemy import func
 
 restaurant_routes = Blueprint('restaurant', __name__)
 
@@ -299,30 +300,27 @@ def delete_one_menu_item(id, menuItemId):
 @restaurant_routes.route("/search")
 def search_filter():
     name = request.args.get("name")
-    # page = request.args.get('page')
-    # size = 10
-
-    # if page == None or page > 10:
-    #     page = 1
-    # offset = size * (page - 1)
-
     results = []
-    restaurants = None
 
     if name:
-        nameSearch = "%{}%".format(name)
-        restaurants = Restaurant.query.filter(Restaurant.name.like(nameSearch))
-    for res in restaurants:
-        id = res.id
-        reviews = Review.query.filter(Review.restaurant_id == id)
-        ratings = []
-        if reviews:
-            for review in reviews:
-                ratings.append(review.stars)
-                if len(ratings) > 0:
+        nameSearch = f"%{name}%"
+        # Using ILIKE for case-insensitive search
+        restaurants = Restaurant.query.filter(func.lower(Restaurant.name).like(func.lower(nameSearch)))
+        
+        for res in restaurants:
+            id = res.id
+            reviews = Review.query.filter(Review.restaurant_id == id)
+            ratings = []
+            
+            if reviews:
+                for review in reviews:
+                    ratings.append(review.stars)
+                    
+                if ratings:  # Checking if ratings list is not empty
                     avgRating = mean(ratings)
                     res.rating = round(avgRating, 2)
-        results.append(res.to_dict())
+            results.append(res.to_dict())
+            
     return results
 
 

@@ -11,6 +11,8 @@ import DeleteReviewPage from "../DeleteReview";
 import DeleteMenuItemPage from "../DeleteMenuItem";
 import { createCartAndCartItem } from "../../store/shoppingcart";
 import { getMenuItems } from "../../store/menuitems";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function GetRestaurantDetailPage() {
 	const dispatch = useDispatch();
@@ -91,6 +93,16 @@ function GetRestaurantDetailPage() {
 		dispatch(getUserCart());
 		dispatch(getMenuItems(restaurantId));
 	}, [dispatch, restaurantId]);
+
+	const notify = () =>
+		toast("✅ Item added to cart.", {
+			className: "custom-toast",
+			autoClose: 2000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			progress: undefined,
+			theme: "dark",
+		});
 
 	return (
 		<div className="res-detail-container">
@@ -269,18 +281,30 @@ function GetRestaurantDetailPage() {
 											</div>
 
 											{currentUser && (
-												<button
-													id="add-to-cart-btn"
-													onClick={(e) =>
-														cartItemAdd(
-															e,
-															menu_item
-														)
-													}
-													disabled={validSubmit}
-												>
-													add to cart
-												</button>
+												<div>
+													<button
+														id="add-to-cart-btn"
+														onClick={(e) => {
+															cartItemAdd(
+																e,
+																menu_item
+															);
+															notify();
+														}}
+														disabled={validSubmit}
+													>
+														add to cart
+													</button>
+													<ToastContainer
+														className="custom-toast"
+														autoClose={2000}
+														hideProgressBar={true}
+														newestOnTop={false}
+														closeOnClick
+														rtl={false}
+														theme="dark"
+													/>
+												</div>
 											)}
 										</div>
 									</div>

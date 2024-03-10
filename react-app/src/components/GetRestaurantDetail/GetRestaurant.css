@@ -606,3 +606,9 @@
 .new-container {
 	display: flex;
 }
+
+.custom-toast {
+	position: fixed;
+	top: 2.5rem;
+	right: 0rem;
+}

@@ -40,7 +40,7 @@ function Navigation({ isLoaded }) {
 				<NavLink exact to="/">
 					<img
 						className="home-logo"
-						src="https://cdn.discordapp.com/attachments/1115823811116400650/1164393415245582436/grubberLogo2.0-Gold.png"
+						src="https://imgur.com/f0YQGLa.png"
 						alt="grubber logo"
 						// onClick={handleLogoClick}
 					/>
