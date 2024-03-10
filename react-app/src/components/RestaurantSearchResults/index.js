@@ -9,7 +9,7 @@ function RestaurantSearchResults() {
 	let { name } = useParams();
 	const restaurantsResults = useSelector((state) => state.searchResults);
 
-	console.log(restaurantsResults);
+	// console.log(restaurantsResults);
 
 	const resultsLoopy = Object.values(restaurantsResults);
 

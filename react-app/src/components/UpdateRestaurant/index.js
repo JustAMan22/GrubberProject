@@ -17,7 +17,7 @@ const UpdateRestaurantPage = () => {
 		return restaurantData ? restaurantData[restaurantId] : null;
 	}, [restaurantData, restaurantId]);
 
-	console.log(restaurant);
+	// console.log(restaurant);
 
 	const [name, setName] = useState("");
 	const [address, setAddress] = useState("");
@@ -71,7 +71,7 @@ const UpdateRestaurantPage = () => {
 		return <UnauthorizedPage />;
 	}
 
-	console.log(preview_image);
+	// console.log(preview_image);
 
 	const updateName = (e) => setName(e.target.value);
 	const updateDescription = (e) => setDescription(e.target.value);
@@ -223,7 +223,7 @@ const UpdateRestaurantPage = () => {
 			// 	preview_image: realUrl.url,
 			// };
 
-			console.log("THIS IS REAL URL", realUrl);
+			// console.log("THIS IS REAL URL", realUrl);
 
 			try {
 				const updatedRestaurant = await dispatch(
