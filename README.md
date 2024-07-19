@@ -7,6 +7,9 @@ Grubber isn't your average food delivery service. We are committed to delivering
 Our dedication to excellence extends beyond simply delivering delicious meals on time. We have carefully created the ideal user experience, but that is only the beginning of what we have to offer. Grubber also offers a platform for restaurant owners to showcase their culinary masterpieces through an easy-to-use interface. Join us in redefining your food delivery experience.
 
 
+![1700342384849](https://github.com/JustAMan22/GrubberProject/assets/69025463/332a924a-b7c5-448c-986c-42a1543724a0)
+
+
 # Grubber - User Stories
 
 ## Users
