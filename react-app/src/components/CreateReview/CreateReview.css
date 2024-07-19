@@ -107,6 +107,7 @@ input:focus {
 
 #review-star {
 	color: rgba(255, 255, 255, 0.192);
+	transition: 0.5s ease;
 }
 
 .create-review-title {
@@ -121,6 +122,7 @@ input:focus {
 .rating {
 	display: flex;
 	justify-content: space-between;
+	transition: 0.5s ease;
 }
 
 #select-rating-text {
@@ -144,12 +146,15 @@ input:focus {
 	font-size: 25px;
 	padding-top: 10px;
 	height: max-content;
+	transition: 0.5s ease;
+	
 }
 
 .stars-text {
 	font-size: 14px;
 	padding-left: 5px;
 	text-align: center;
+	transition: 0.5s ease;
 }
 
 .star {
@@ -196,6 +201,7 @@ input:focus {
 	-moz-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	-moz-text-fill-color: transparent;
+	transition: 0.5s ease;
 }
 
 .star:hover ~ .star {
@@ -213,6 +219,7 @@ input:focus {
 	-moz-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	-moz-text-fill-color: transparent;
+	transition: 0.5s ease;
 }
 
 .create-review-submit-button {
