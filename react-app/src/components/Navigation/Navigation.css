@@ -1010,8 +1010,8 @@ input[type="search"]::-moz-clear {
 	}
 
 	.outter-search-bar-container {
-		width: 55%;
-		max-width: 55%;
+		width: 59%;
+		max-width: 59%;
 		margin: 0 1rem 0 0;
 	}
 
@@ -1020,19 +1020,20 @@ input[type="search"]::-moz-clear {
 	}
 
 	#search-results-address {
-		font-size: 0.4rem;
+		font-size: 0.2rem;
 	}
 
 	#search-results-name {
-		font-size: 0.5rem;
+		font-size: 0.3rem;
 	}
 
 	.profile-button {
 		margin: 0 0.9rem 0 0;
 	}
 
-	.create-res-btn {
-		font-size: 0.7rem;
+	#create-new-txt,
+	#create-res-res-btn {
+		font-size: 0.3rem;
 	}
 
 	.profile-dropdown {
@@ -1040,12 +1041,6 @@ input[type="search"]::-moz-clear {
 	}
 
 	.cart-dropdown {
-		right: 0.1rem;
+		right: 0.01rem;
 	}
 }
-
-/* @media (max-width: 815px) {
-	#search-results-address {
-		font-size: 0.7rem;
-	}
-} */
