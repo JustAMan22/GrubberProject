@@ -117,6 +117,13 @@ function ProfileButton({ user }) {
 						</div>
 						<div
 							className="create-res-btn"
+							onClick={() => history.push("/")}
+						>
+							<i id="plus-sign" class="fa-solid fa-house"></i>
+							<span id="create-res-res-btn">go to home</span>
+						</div>
+						<div
+							className="create-res-btn"
 							onClick={() => history.push("/restaurants/create")}
 						>
 							<i
