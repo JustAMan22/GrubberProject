@@ -365,9 +365,16 @@
 
 .MuiAutocomplete-root,
 .MuiAutocomplete-hasPopupIcon,
-.css-1h51icj-MuiAutocomplete-root {
+.css-1h51icj-MuiAutocomplete-root,
+.css-18nc3u2 {
 	margin-left: 1rem;
 	width: 100%;
+}
+
+.MuiAutocomplete-root:hover,
+.MuiAutocomplete-hasPopupIcon:hover,
+.css-1h51icj-MuiAutocomplete-root:hover {
+	cursor: text;
 }
 
 .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper {
