@@ -1015,7 +1015,7 @@ input[type="search"]::-moz-clear {
 	.outter-search-bar-container {
 		width: 65%;
 		max-width: 65%;
-		margin: 0 1rem 0 0;
+		margin: 0 1rem 0 0.7rem;
 	}
 
 	.navbar-ul {
@@ -1031,7 +1031,7 @@ input[type="search"]::-moz-clear {
 	}
 
 	.profile-button {
-		margin: 0 0.9rem 0 0.3rem;
+		margin: 0 0.9rem 0 0;
 	}
 
 	#create-new-txt,
