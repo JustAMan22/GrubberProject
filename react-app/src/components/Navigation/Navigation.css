@@ -715,6 +715,7 @@ input[type="search"]::-moz-clear {
 .create-res-btn {
 	display: flex;
 	justify-content: flex-start;
+	align-items: center;
 	width: 10.625rem; /* 170px / 16 */
 	border-bottom: 0.01875rem solid #bf9a5e; /* 0.3px / 16 */
 	padding: 0.125rem 0.4375rem 0.25rem 0; /* 2px 7px 4px 0px / 16 */
@@ -768,12 +769,14 @@ input[type="search"]::-moz-clear {
 }
 
 #create-new-txt {
+	align-items: center;
 	color: white;
 	font-size: 0.90625rem; /* 14.5px / 16 */
 }
 
 #create-res-res-btn {
 	background-color: transparent;
+	align-items: center;
 	border: none;
 	font-size: 0.94375rem; /* 15.1px / 16 */
 	margin-left: 0.25rem; /* 4px / 16 */
@@ -1010,8 +1013,8 @@ input[type="search"]::-moz-clear {
 	}
 
 	.outter-search-bar-container {
-		width: 59%;
-		max-width: 59%;
+		width: 65%;
+		max-width: 65%;
 		margin: 0 1rem 0 0;
 	}
 
@@ -1020,11 +1023,11 @@ input[type="search"]::-moz-clear {
 	}
 
 	#search-results-address {
-		font-size: 0.2rem;
+		font-size: 0.4rem;
 	}
 
 	#search-results-name {
-		font-size: 0.3rem;
+		font-size: 0.5rem;
 	}
 
 	.profile-button {
@@ -1033,7 +1036,7 @@ input[type="search"]::-moz-clear {
 
 	#create-new-txt,
 	#create-res-res-btn {
-		font-size: 0.3rem;
+		font-size: 0.7rem;
 	}
 
 	.profile-dropdown {
