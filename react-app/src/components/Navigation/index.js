@@ -35,8 +35,8 @@ function Navigation({ isLoaded }) {
 	// };
 
 	return (
-		<ul className="navbar-ul">
-			<li className="home-button-navbar">
+		<div className="navbar-ul">
+			<div className="home-button-navbar">
 				<NavLink exact to="/">
 					<img
 						className="home-logo"
@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
 						// onClick={handleLogoClick}
 					/>
 				</NavLink>
-			</li>
+			</div>
 			<div className="outter-search-bar-container">
 				<form className="search-bar-form" onSubmit={handleSubmit}>
 					<div id="search-bar-container">
@@ -137,7 +137,7 @@ function Navigation({ isLoaded }) {
 					</div>
 				</div>
 			)}
-		</ul>
+		</div>
 	);
 }
 
