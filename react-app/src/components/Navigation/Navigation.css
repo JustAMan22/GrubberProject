@@ -1031,7 +1031,7 @@ input[type="search"]::-moz-clear {
 	}
 
 	.profile-button {
-		margin: 0 0.9rem 0 0;
+		margin: 0 0.9rem 0 0.3rem;
 	}
 
 	#create-new-txt,
