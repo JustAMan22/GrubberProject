@@ -230,3 +230,17 @@
 	font-size: 1.7rem;
 	text-decoration: none;
 }
+
+@media (max-width: 400px) {
+	#footer {
+		max-height: 20%;
+	}
+
+	#footer-title {
+		font-size: 1.5rem;
+	}
+
+	.footer-title-container {
+		max-width: 95%;
+	}
+}

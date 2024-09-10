@@ -21,17 +21,17 @@ function GetAllRestaurantsPage() {
 			</div>
 			<div className="home-page-img">
 				<img
-					className="actl-home-img"
+					className="actl-home-img1"
 					src="https://images.unsplash.com/photo-1550927001-03fd6b9e9262"
 					alt="luxury-food"
 				/>
 				<img
-					className="actl-home-img"
+					className="actl-home-img2"
 					src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab"
 					alt="luxury-food"
 				/>
 				<img
-					className="actl-home-img"
+					className="actl-home-img3"
 					src="https://images.unsplash.com/photo-1533143708019-ea5cfa80213e"
 					alt="luxury-food"
 				/>
