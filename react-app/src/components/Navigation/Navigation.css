@@ -1013,7 +1013,7 @@ input[type="search"]::-moz-clear {
 	}
 
 	.outter-search-bar-container {
-		max-width: 85%;
+		max-width: 62%;
 		margin: 0 1.5rem 0 0.5rem;
 	}
 
@@ -1043,7 +1043,7 @@ input[type="search"]::-moz-clear {
 	#profile-button-id,
 	#shopping-cart-id {
 		align-items: center;
-		font-size: 1.25rem;
+		font-size: 1.1rem;
 		margin: 0 0.2rem 0 0;
 	}
 
