@@ -284,4 +284,8 @@
 	.res-img {
 		max-width: 100%;
 	}
+
+	#res-preview-review-text{
+		font-size: 0.7rem;
+	}
 }

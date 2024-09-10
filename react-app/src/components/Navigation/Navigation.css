@@ -1037,6 +1037,7 @@ input[type="search"]::-moz-clear {
 	.profile-button {
 		margin: 0 0.3rem 0 0;
 		width: 3.5rem;
+		height: 2rem;
 		padding: 0.1875rem 0.7rem 0.1875rem 1rem;
 	}
 
@@ -1053,7 +1054,8 @@ input[type="search"]::-moz-clear {
 	}
 
 	.shopping-cart-button {
-		width: 3.5rem;
+		width: 3rem;
+		height: 2rem;
 		padding: 0.1875rem 0.7rem 0.1875rem 1rem;
 	}
 
