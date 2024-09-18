@@ -132,13 +132,15 @@ function GetRestaurantDetailPage() {
 											: null}
 									</div>
 									<div id="res-center-dot-detail">|</div>{" "}
-									<div>
+									<div id="actl-star-container-guy">
 										<i
 											id="res-star-icon-detail"
 											className="fa-solid fa-star"
 										></i>
 									</div>
-									{restaurant?.avg_rating.toFixed(1)}
+									<div id="actl-rating-numbaa">
+										{restaurant?.avg_rating.toFixed(1)}
+									</div>
 									{restaurant?.reviews?.length > 0 ? (
 										<span id="res-review-length-detail">
 											({restaurant?.reviews?.length}{" "}

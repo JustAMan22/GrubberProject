@@ -131,6 +131,14 @@ function Navigation({ isLoaded }) {
 							<div className="welcomeback-msg-text">welcome.</div>
 						</div>
 					)}
+					<div className="home-btn-container">
+						<NavLink exact to="/">
+							<i
+								id="home-btn-mobile"
+								className="fa-solid fa-house"
+							></i>
+						</NavLink>
+					</div>
 					<ProfileButton user={sessionUser} />
 					<div>
 						<ShoppingCart isLoaded={isLoaded} user={sessionUser} />
