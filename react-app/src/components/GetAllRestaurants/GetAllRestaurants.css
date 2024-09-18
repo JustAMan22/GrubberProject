@@ -250,6 +250,11 @@
 }
 
 @media (max-width: 844px) {
+
+	.main-container {
+		max-width: 100%;
+		width: 100%;
+	}
 	.home-page-img {
 		max-height: 20%;
 	}
@@ -283,7 +288,7 @@
 
 	.indv-restaurant-container {
 		max-width: 100%;
-		width: 99%;
+		width: 83%;
 		margin: 1rem 0.625rem 0.625rem 0.625rem
 	}
 

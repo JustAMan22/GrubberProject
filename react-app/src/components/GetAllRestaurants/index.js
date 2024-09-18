@@ -15,7 +15,7 @@ function GetAllRestaurantsPage() {
 	const restaurantsValues = Object?.values(restaurants);
 
 	return (
-		<div>
+		<div className="main-container">
 			<div className="text-overlay-container">
 				<span className="text-overlay-span">experience luxury...</span>
 			</div>

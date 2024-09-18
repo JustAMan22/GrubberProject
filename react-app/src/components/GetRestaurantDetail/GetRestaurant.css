@@ -621,7 +621,8 @@
 		max-width: 99%;
 		height: 50%;
 		margin: 2rem 0 0 0;
-		overflow: hidden;
+		overflow-x: hidden;
+		overflow-y: hidden;
 	}
 
 	.menu-item-main {
