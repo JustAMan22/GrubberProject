@@ -604,8 +604,12 @@
 }
 
 @media (max-width: 400px) {
+	.res-detail-container {
+		max-width: 99%;
+		width: 99%;
+	}
 	.res-img-info-detail-container {
-		max-width: 100%;
+		max-width: 99%;
 		max-height: 80%;
 		height: 70%;
 		overflow: scroll;
@@ -615,19 +619,19 @@
 	.menu-items {
 		display: flex;
 		flex-direction: column;
-		max-width: 100%;
+		max-width: 99%;
 		height: 50%;
 		margin: 2rem 0 0 0;
 	}
 
 	.menu-item-main {
-		max-width: 100%;
-		width: 100%;
+		max-width: 99%;
+		width: 99%;
 		height: 90%;
 	}
 
 	.menu-item-info {
-		max-width: 100%;
+		max-width: 99%;
 		width: 13rem;
 	}
 
@@ -639,8 +643,8 @@
 	}
 
 	#menu-item-container {
-		max-width: 100%;
-		width: 100%;
+		max-width: 99%;
+		width: 99%;
 	}
 
 	#menu-item-name-detail {
@@ -656,15 +660,15 @@
 	}
 
 	#res-preview-img-detail {
-		width: 100%;
+		width: 99%;
 	}
 
 	.all-reviews-container-container {
-		max-width: 100%;
+		max-width: 99%;
 	}
 
 	#res-preview-img-detail-container {
-		max-width: 100%;
+		max-width: 99%;
 	}
 
 	#res-name-detail {
@@ -690,11 +694,11 @@
 	.all-reviews-container {
 		display: flex;
 		flex-direction: column;
-		max-width: 100%;
+		max-width: 99%;
 	}
 
 	.indv-reviews {
-		max-width: 100%;
+		max-width: 99%;
 	}
 
 	.review-text {
