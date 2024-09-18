@@ -700,4 +700,8 @@
 	.review-text {
 		font-size: 1rem;
 	}
+
+	#manage-buttons {
+		margin: 1rem 0 0 0;
+	}
 }
