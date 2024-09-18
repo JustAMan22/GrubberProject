@@ -947,6 +947,7 @@ input[type="search"]::-moz-clear {
 	border: 0.01875rem solid #bf9a5e; /* 0.3px / 16 */
 }
 
+
 @media (max-width: 1275px) {
 	.search-bar-form,
 	#search-bar-container,

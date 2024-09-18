@@ -250,7 +250,6 @@
 }
 
 @media (max-width: 844px) {
-
 	.main-container {
 		max-width: 100%;
 		width: 100%;
@@ -289,7 +288,7 @@
 	.indv-restaurant-container {
 		max-width: 100%;
 		width: 83%;
-		margin: 1rem 0.625rem 0.625rem 0.625rem
+		margin: 1rem 0.625rem 0.625rem 0.625rem;
 	}
 
 	.res-img {
@@ -297,7 +296,15 @@
 		width: 100%;
 	}
 
-	#res-preview-review-text{
+	#res-preview-review-text {
 		font-size: 0.7rem;
+	}
+}
+
+@media (max-width: 400px) {
+	.indv-restaurant-container {
+		max-width: 100%;
+		width: 99%;
+		margin: 1rem 0.625rem 0.625rem 0.625rem;
 	}
 }
