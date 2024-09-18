@@ -612,7 +612,6 @@
 		max-width: 99%;
 		max-height: 80%;
 		height: 70%;
-		overflow: scroll;
 		flex-direction: column;
 	}
 
