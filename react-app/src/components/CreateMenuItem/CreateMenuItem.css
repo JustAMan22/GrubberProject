@@ -10,8 +10,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	border: 1px solid rgba(255, 255, 255, 0.075);
-	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+	border: 0.0625rem solid rgba(255, 255, 255, 0.075); /* 1px */
+	box-shadow: rgba(255, 255, 255, 0.144) 0rem 0.3125rem 0.9375rem; /* 0px 5px 15px */
 	height: 30rem;
 	width: 35rem;
 }
@@ -37,41 +37,40 @@
 
 .image-upload-container {
 	display: flex;
-  flex-direction: column;
-  width: 32rem;
-  margin: 20px 0 0 0;
+	flex-direction: column;
+	width: 32rem;
+	margin: 1.25rem 0 0 0; /* 20px 0 0 0 */
 }
 
 #preview-image-error-text-menu {
-  /* margin: 10px 0 0 0; */
+	/* margin: 10px 0 0 0; */
 }
 
 #menu-item-title {
 	display: flex;
 	justify-content: center;
-	margin: 10px 0 0 0;
+	margin: 0.625rem 0 0 0; /* 10px 0 0 0 */
 	color: white;
-	font-size: 25px;
+	font-size: 1.5625rem; /* 25px */
 }
 
 .input-field-menu {
 	width: 15rem;
 	height: 2rem;
 	background-color: transparent;
-	border: 1px solid rgba(191, 154, 94, 0.733);
-	border-radius: 5px;
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
+	border-radius: 0.3125rem; /* 5px */
 	color: rgba(255, 255, 255, 0.678);
 	transition: 0.5s ease;
-	padding: 5px;
+	padding: 0.3125rem; /* 5px */
 }
 
 .input-field-menu:hover {
-	border: 1px solid rgb(191, 154, 94);
+	border: 0.0625rem solid rgb(191, 154, 94); /* 1px */
 }
 
 .input-field-menu::placeholder {
 	color: rgba(255, 255, 255, 0.678);
-	/* padding: 0 0 0 10px; */
 }
 
 .name-menu,
@@ -84,8 +83,8 @@
 	background-color: transparent;
 	border: none;
 	color: rgba(255, 255, 255, 0.719);
-	border: 1px solid rgba(191, 154, 94, 0.733);
-	border-radius: 5px;
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
+	border-radius: 0.3125rem; /* 5px */
 	cursor: pointer;
 	font-family: "Rajdhani", sans-serif;
 	transition: 0.5s ease;
@@ -95,7 +94,7 @@
 
 #upload-photo-menu::file-selector-button:hover {
 	color: #ffffff;
-	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+	box-shadow: rgba(255, 255, 255, 0.301) 0.125rem 0rem 0.3125rem; /* 2px 0px 5px */
 }
 
 #upload-photo-menu {
@@ -108,8 +107,8 @@
 	background-color: transparent;
 	border: none;
 	color: rgba(255, 255, 255, 0.719);
-	border: 1px solid rgba(191, 154, 94, 0.733);
-	border-radius: 5px;
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
+	border-radius: 0.3125rem; /* 5px */
 	cursor: pointer;
 	font-family: "Rajdhani", sans-serif;
 	transition: 0.5s ease;
@@ -125,7 +124,7 @@
 
 .publish-menu-item-btn:hover {
 	color: #ffffff;
-	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+	box-shadow: rgba(255, 255, 255, 0.301) 0.125rem 0rem 0.3125rem; /* 2px 0px 5px */
 }
 
 .price-name-container {
@@ -139,7 +138,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 20px 0 0 0;
+	margin: 1.25rem 0 0 0; /* 20px 0 0 0 */
 }
 
 .description-menu {
@@ -148,19 +147,73 @@
 }
 
 #description-menu-input {
-  resize: none;
+	resize: none;
 	width: 32rem;
 	height: 6rem;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	display: flex;
 }
 
 .error-message-text {
-  color: white;
+	color: white;
 }
 
 #menu-desc-error {
-  display: flex;
-  width: 32rem;
+	display: flex;
+	width: 32rem;
+}
+
+@media (max-width: 844px) {
+	.create-menu-item-form {
+		align-items: center;
+	}
+	.menu-item-container {
+		max-width: 99%;
+		width: 99%;
+		max-height: 85vh;
+		height: 85vh;
+	}
+
+	.price-name-container {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	#menu-item-name,
+	#price-menu,
+	#description-menu-input {
+		max-width: 20rem;
+		width: 20rem;
+	}
+
+	.menu-item-form {
+		margin: 0 0 1rem 0;
+	}
+
+	.description-menu {
+		max-width: 99%;
+		width: 99%;
+	}
+
+	.menu-item-form-desc-container,
+	.menu-item-form-desc-container {
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	.image-upload-container {
+		max-width: 99%;
+		width: 99%;
+	}
+
+	.button-photo-container {
+		justify-content: flex-start;
+		margin: 9rem 0 0 0;
+	}
+
+	#menu-desc-error {
+		max-width: 99%;
+		width: 99%;
+	}
 }
