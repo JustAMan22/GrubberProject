@@ -1097,7 +1097,8 @@ input[type="search"]::-moz-clear {
 	}
 
 	.checkout-btn-div {
-		width: 75%;
+		max-width: 85%;
+		width: 85%;
 	}
 
 	.cart-item-container {

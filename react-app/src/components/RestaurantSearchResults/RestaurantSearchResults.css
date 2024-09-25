@@ -24,3 +24,13 @@
 	-webkit-text-fill-color: transparent;
 	-moz-text-fill-color: transparent;
 }
+
+@media (max-width: 844px) {
+	.no-results-info {
+		justify-content: center;
+		align-items: center;
+		max-height: 80vh;
+		height: 50vh;
+		font-size: 1.8rem;
+	}
+}

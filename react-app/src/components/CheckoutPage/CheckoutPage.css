@@ -21,8 +21,8 @@
 .checkout-cart-items {
 	display: flex;
 	flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 	width: 50rem;
 	height: 35rem;
 	margin: 0 0 0 20px;
@@ -155,4 +155,35 @@
 #go-home-btn:hover {
 	border: 1px solid rgb(191, 154, 94);
 	cursor: pointer;
+}
+
+@media (max-width: 844px) {
+	.checkout-form {
+		max-width: 99%;
+		width: 99%;
+		margin: 3rem 0 0 0;
+	}
+
+	.checkout-page-address-form {
+		max-width: 99%;
+		width: 99%;
+	}
+
+	.checkout-page-container {
+		flex-direction: column;
+	}
+
+	.cart-item-container-checkout {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.delivery-info-text {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	#auto-complete-box2 {
+		max-width: 99%;
+	}
 }

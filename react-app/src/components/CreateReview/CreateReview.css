@@ -20,11 +20,11 @@
 }
 
 .form-row-stars-rating-container {
-	border-radius: 5px;
-	width: 725px;
-	height: 470px;
-	border: 1px solid rgba(255, 255, 255, 0.075);
-	box-shadow: rgba(191, 154, 94, 0.144) 0px 5px 15px;
+	border-radius: 0.3125rem; /* 5px */
+	width: 45.3125rem; /* 725px */
+	height: 29.375rem; /* 470px */
+	border: 0.0625rem solid rgba(255, 255, 255, 0.075); /* 1px */
+	box-shadow: rgba(191, 154, 94, 0.144) 0rem 0.3125rem 0.9375rem; /* 0px 5px 15px */
 	transition: 0.5s ease;
 }
 
@@ -33,20 +33,15 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	width: 725px;
-	height: 470px;
+	width: 45.3125rem; /* 725px */
+	height: 29.375rem; /* 470px */
 }
-
-/* .form-row-stars-rating-container:hover {
-	border: 1px solid rgba(255, 255, 255, 0.158);
-	box-shadow: rgba(191, 154, 94, 0.301) 0px 5px 15px;
-} */
 
 .create-review-input {
 	resize: none;
-	width: 578px;
-	height: 270px;
-	font-size: 15px;
+	width: 36.125rem; /* 578px */
+	height: 16.875rem; /* 270px */
+	font-size: 0.9375rem; /* 15px */
 	background-image: linear-gradient(
 		to right,
 		#dec489,
@@ -62,9 +57,9 @@
 	-webkit-text-fill-color: transparent;
 	-moz-text-fill-color: transparent;
 	font-weight: bolder;
-	border: 1px solid rgba(255, 255, 255, 0.062);
-	border-radius: 3px;
-	padding: 5px;
+	border: 0.0625rem solid rgba(255, 255, 255, 0.062); /* 1px */
+	border-radius: 0.1875rem; /* 3px */
+	padding: 0.3125rem; /* 5px */
 	caret-color: white;
 }
 
@@ -80,7 +75,7 @@ input:focus {
 }
 
 .create-review-input::-webkit-scrollbar {
-	width: 6px;
+	width: 0.375rem; /* 6px */
 	cursor: pointer;
 }
 
@@ -94,8 +89,8 @@ input:focus {
 		#bf9a5e
 	);
 	background-size: 100%;
-	border-radius: 6px;
-	padding-left: 50px;
+	border-radius: 0.375rem; /* 6px */
+	padding-left: 3.125rem; /* 50px */
 	cursor: pointer;
 }
 
@@ -104,15 +99,14 @@ input:focus {
 	cursor: pointer;
 }
 
-
 #review-star {
 	color: rgba(255, 255, 255, 0.192);
 	transition: 0.5s ease;
 }
 
 .create-review-title {
-	font-size: 45px;
-	margin: 0 0 20px 0;
+	font-size: 2.8125rem; /* 45px */
+	margin: 0 0 1.25rem 0; /* 20px */
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -130,29 +124,28 @@ input:focus {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	margin: 0 0 1rem 5px;
-	font-size: 15px;
+	margin: 0 0 1rem 0.3125rem; /* 5px */
+	font-size: 0.9375rem; /* 15px */
 }
 
 .stars-container {
 	display: flex;
 	align-items: center;
-	width: 578px;
+	width: 36.125rem; /* 578px */
 }
 
 .stars {
 	display: flex;
 	flex-direction: row-reverse;
-	font-size: 25px;
-	padding-top: 10px;
+	font-size: 1.5625rem; /* 25px */
+	padding-top: 0.625rem; /* 10px */
 	height: max-content;
 	transition: 0.5s ease;
-	
 }
 
 .stars-text {
-	font-size: 14px;
-	padding-left: 5px;
+	font-size: 0.875rem; /* 14px */
+	padding-left: 0.3125rem; /* 5px */
 	text-align: center;
 	transition: 0.5s ease;
 }
@@ -160,11 +153,11 @@ input:focus {
 .star {
 	cursor: pointer;
 	color: rgb(255, 255, 255);
-	border-radius: 4px;
-	margin-right: 2.5px;
-	margin-left: 2.5px;
+	border-radius: 0.25rem; /* 4px */
+	margin-right: 0.15625rem; /* 2.5px */
+	margin-left: 0.15625rem; /* 2.5px */
 	transition: 0.5s ease;
-	font-size: 50px;
+	font-size: 3.125rem; /* 50px */
 	height: max-content;
 }
 
@@ -223,12 +216,12 @@ input:focus {
 }
 
 .create-review-submit-button {
-	width: 350px;
-	height: 50px;
-	border: 0.3px solid rgba(191, 154, 94, 0.3);
-	font-size: 16px;
-	border-radius: 30px;
-	margin-top: 20px;
+	width: 21.875rem; /* 350px */
+	height: 3.125rem; /* 50px */
+	border: 0.01875rem solid rgba(191, 154, 94, 0.3); /* 0.3px */
+	font-size: 1rem; /* 16px */
+	border-radius: 1.875rem; /* 30px */
+	margin-top: 1.25rem; /* 20px */
 	color: #ffffff;
 	background-color: transparent;
 	transition: 0.5s ease;
@@ -237,13 +230,13 @@ input:focus {
 
 .create-review-submit-button:hover {
 	cursor: pointer;
-	box-shadow: rgba(191, 154, 94, 0.5) 0px 2px 10px;
+	box-shadow: rgba(191, 154, 94, 0.5) 0rem 0.125rem 0.625rem; /* 0px 2px 10px */
 }
 
 .create-review-error-div {
-	padding: 0px;
-	margin-top: 10px;
-	width: 625px;
+	padding: 0rem; /* 0px */
+	margin-top: 0.625rem; /* 10px */
+	width: 39.0625rem; /* 625px */
 }
 
 .all-errors-reviews {
@@ -253,7 +246,7 @@ input:focus {
 
 .create-review-error-text,
 .create-stars-error-text {
-	font-size: 15px;
+	font-size: 0.9375rem; /* 15px */
 	color: rgba(255, 255, 255, 0.692);
 	font-weight: 800;
 }
@@ -276,15 +269,15 @@ input:focus {
 	-moz-text-fill-color: transparent;
 	align-items: center;
 	font-weight: bolder;
-	height: 25px;
-	padding: 0 3px 0 0;
+	height: 1.5625rem; /* 25px */
+	padding: 0 0.1875rem 0 0; /* 0 3px 0 0 */
 }
 
 #food-text {
 	display: flex;
 	align-items: center;
-	height: 25px;
-	padding: 0 3px 0 0;
+	height: 1.5625rem; /* 25px */
+	padding: 0 0.1875rem 0 0; /* 0 3px 0 0 */
 	background-image: linear-gradient(
 		to right,
 		#dec489,
@@ -322,28 +315,64 @@ input:focus {
 	-moz-text-fill-color: transparent;
 	align-items: center;
 	font-weight: bolder;
-	height: 25px;
-	padding: 0 3px 0 0;
+	height: 1.5625rem; /* 25px */
+	padding: 0 0.1875rem 0 0; /* 0 3px 0 0 */
 }
 
 .text-below-rating-container {
 	display: flex;
-	width: 578px;
+	width: 36.125rem; /* 578px */
 }
 
 #how-was-the-text {
 	display: flex;
-	height: 25px;
+	height: 1.5625rem; /* 25px */
 	align-items: center;
 	color: white;
-	margin: 0 0 5px 5px;
+	margin: 0 0 0.3125rem 0.3125rem; /* 0 0 5px 5px */
 }
 
 .rating-categories {
 	display: flex;
-	margin: 0 0 0 5px;
+	margin: 0 0 0 0.3125rem; /* 5px */
 	color: white;
-	width: 140px;
+	width: 8.75rem; /* 140px */
 	justify-content: space-between;
 	font-style: italic;
+}
+
+@media (max-width: 844px) {
+	.create-review-container {
+		max-width: 99%;
+		width: 99%;
+		max-height: 85%;
+		height: 85%;
+	}
+
+	.title-and-review-container {
+		max-width: 99%;
+		width: 99%;
+		max-height: 85%;
+		height: 85%;
+		margin: 5rem 0 0 0;
+	}
+
+	.create-review-title {
+		font-size: 1.5rem;
+	}
+
+	.form-row-stars-rating-container {
+		max-width: 99%;
+		width: 99%;
+	}
+
+	.inside-div-container,
+	.text-below-rating-container,
+	.create-review-label,
+	.create-review-input,
+	.all-errors-reviews,
+	.create-review-error-div {
+		max-width: 99%;
+		width: 99%;
+	}
 }

@@ -18,3 +18,15 @@
 	height: 100vh;
 	width: 100vw;
 }
+
+@media (max-width: 844px) {
+	.order-text-container {
+		max-height: 80vh;
+		height: 75vh;
+	}
+
+	.order-successful-text,
+	.order-successful-text-2 {
+		font-size: 3rem;
+	}
+}

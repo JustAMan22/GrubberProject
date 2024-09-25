@@ -11,9 +11,9 @@
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	border-radius: 5px;
-	border: 1px solid rgba(255, 255, 255, 0.075);
-	box-shadow: rgba(255, 255, 255, 0.144) 0px 5px 15px;
+	border-radius: 0.3125rem; /* 5px */
+	border: 0.0625rem solid rgba(255, 255, 255, 0.075); /* 1px */
+	box-shadow: rgba(255, 255, 255, 0.144) 0rem 0.3125rem 0.9375rem; /* 0px 5px 15px */
 	width: 50rem;
 	height: 40rem;
 	color: white;
@@ -27,25 +27,25 @@
 
 .form-heading {
 	color: white;
-	font-size: 35px;
+	font-size: 2.1875rem; /* 35px */
 }
 
 .restaurantName {
-	margin: 0 0 3px 0;
-	font-size: 18px;
+	margin: 0 0 0.1875rem 0; /* 0 0 3px 0 */
+	font-size: 1.125rem; /* 18px */
 }
 
 .desc-container {
 	display: flex;
 	flex-direction: column;
-	margin: 15px 0 0 0;
+	margin: 0.9375rem 0 0 0; /* 15px 0 0 0 */
 }
 
 #desc-textarea {
 	height: 7rem;
 	width: 42rem;
 	resize: none;
-	padding: 5px;
+	padding: 0.3125rem; /* 5px */
 	font-weight: bolder;
 }
 
@@ -62,24 +62,23 @@ textarea:focus {
 	width: 20rem;
 	height: 2rem;
 	background-color: transparent;
-	border: 1px solid rgba(191, 154, 94, 0.733);
-	border-radius: 5px;
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
+	border-radius: 0.3125rem; /* 5px */
 	color: rgba(255, 255, 255, 0.678);
 	transition: 0.5s ease;
-	padding: 5px;
+	padding: 0.3125rem; /* 5px */
 }
 
 .input-field:hover {
-	border: 1px solid rgb(191, 154, 94);
+	border: 0.0625rem solid rgb(191, 154, 94); /* 1px */
 }
 
 .input-field::placeholder {
 	color: rgba(255, 255, 255, 0.678);
-	/* padding: 0 0 0 10px; */
 }
 
 #price-range-select {
-	padding: 0 0 0 10px;
+	padding: 0 0 0 0.625rem; /* 0 0 0 10px */
 }
 
 #price-range-select:focus,
@@ -96,8 +95,8 @@ select:focus {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 20px 0 0 0;
-	height: 50px;
+	margin: 1.25rem 0 0 0; /* 20px 0 0 0 */
+	height: 3.125rem; /* 50px */
 }
 
 .image-upload-input-container {
@@ -110,8 +109,8 @@ select:focus {
 	background-color: transparent;
 	border: none;
 	color: rgba(255, 255, 255, 0.719);
-	border: 1px solid rgba(191, 154, 94, 0.733);
-	border-radius: 5px;
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
+	border-radius: 0.3125rem; /* 5px */
 	cursor: pointer;
 	font-family: "Rajdhani", sans-serif;
 	transition: 0.5s ease;
@@ -121,7 +120,7 @@ select:focus {
 
 #upload-photo::file-selector-button:hover {
 	color: #ffffff;
-	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+	box-shadow: rgba(255, 255, 255, 0.301) 0.125rem 0rem 0.3125rem; /* 2px 0px 5px */
 }
 
 #upload-photo {
@@ -139,8 +138,8 @@ select:focus {
 	background-color: transparent;
 	border: none;
 	color: rgba(255, 255, 255, 0.719);
-	border: 1px solid rgba(191, 154, 94, 0.733);
-	border-radius: 5px;
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
+	border-radius: 0.3125rem; /* 5px */
 	cursor: pointer;
 	font-family: "Rajdhani", sans-serif;
 	transition: 0.5s ease;
@@ -150,15 +149,14 @@ select:focus {
 
 #publish-res-button:hover {
 	color: #ffffff;
-	box-shadow: rgba(255, 255, 255, 0.301) 2px 0px 5px;
+	box-shadow: rgba(255, 255, 255, 0.301) 0.125rem 0rem 0.3125rem; /* 2px 0px 5px */
 }
-
 
 #auto-complete-box {
 	width: 42rem;
 	height: 2rem;
 	border-radius: 0.3rem;
-	border: 1px solid rgba(191, 154, 94, 0.733);
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
 	color: rgba(255, 255, 255, 0.719);
 	background-color: transparent;
 	font-family: "Rajdhani", sans-serif;
@@ -173,7 +171,7 @@ select:focus {
 	width: 42rem;
 	height: 3rem;
 	border-radius: 0.3rem;
-	border: 1px solid rgba(191, 154, 94, 0.733);
+	border: 0.0625rem solid rgba(191, 154, 94, 0.733); /* 1px */
 	color: rgba(255, 255, 255, 0.719);
 	background-color: transparent;
 	font-family: "Rajdhani", sans-serif;
@@ -215,4 +213,63 @@ select:focus {
 
 #res-name-id {
 	margin: 0 2rem 0 0;
+}
+
+@media (max-width: 844px) {
+	.form-container,
+	#res-address-create {
+		max-width: 99%;
+		width: 99%;
+	}
+
+	.create-restaurant-form {
+		max-width: 99%;
+		width: 99%;
+		margin: 0 0 0 1rem;
+	}
+
+	.publish-and-upload-container {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: 99%;
+		width: 99%;
+	}
+
+	#auto-complete-box {
+		max-width: 99%;
+	}
+
+	.auto-complete-container,
+	#desc-textarea {
+		max-width: 20rem;
+	}
+
+	.form-heading {
+		font-size: 1.8rem;
+		margin: 0 0 0 0.5rem;
+	}
+
+	.name-price-container {
+		flex-direction: column;
+	}
+
+	#res-name-id {
+		margin: 0 0 1rem 0;
+	}
+
+	.create-res-btn-container {
+		width: 99%;
+		margin: 1rem 0 0 0;
+	}
+
+	.image-upload-input-container {
+		margin: 1rem 0 0 0;
+		width: 99%;
+		justify-content: flex-start;
+	}
+
+	#publish-res-button {
+		font-weight: bold;
+	}
 }
